@@ -46,9 +46,52 @@ def get_size(size):
 # Ask Doubt on telegram @KingVJ0
 
 
+async def force_sub_check(client, user_id):
+    try:
+        # Check if the user is a member of the update channel
+        user = await client.get_chat_member(FORCE_SUB_CHANNEL, user_id)
+        
+        # If the user is a member, administrator, or owner, return True
+        if user.status in [enums.ChatMemberStatus.MEMBER, enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
+            return True
+        
+        # Otherwise, the user is not a member
+        return False
+    
+    # Handle case where the user is not a participant
+    except UserNotParticipant:
+        return False
+    
+    # Handle permission or access-related issues
+    except (ChatAdminRequired, ChannelPrivate) as e:
+        logger.error(f"Bot lacks permission to check subscription or channel is private: {e}")
+        return False
+    
+    # Catch any other exceptions
+    except Exception as e:
+        logger.error(f"Unexpected error checking subscription status: {e}")
+        return False
+
+
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     username = (await client.get_me()).username
+
+    # Force sub check
+    is_subscribed = await force_sub_check(client, message.from_user.id)
+    
+    if not is_subscribed:
+        buttons = [[
+            InlineKeyboardButton('🛸ᴜᴘᴅᴀᴛᴇ  ᴄʜᴀɴɴᴇʟ', url="https://t.me/Tetris_botz")
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_text(
+            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴜsᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ,  ʙᴜᴛ  ᴜ ʀ  ɴᴏᴛ \n\n ᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
+            reply_markup=reply_markup
+        )
+        return
+        
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
