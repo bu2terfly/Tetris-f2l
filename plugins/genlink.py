@@ -6,6 +6,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import ADMINS, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
 from plugins.database import unpack_new_file_id
 from plugins.users_api import get_user, get_short_link
+import re
+import json
 import base64
 import logging
 
