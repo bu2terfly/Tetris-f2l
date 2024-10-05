@@ -363,18 +363,28 @@ async def base_site_handler(client, m: Message):
     user = await get_user(user_id)
     cmd = m.command
     text = f"`/base_site (base_site)`\n\n<b>Current base site: None\n\n EX:</b> `/base_site shortnerdomain.com`\n\nIf You Want To Remove Base Site Then Copy This And Send To Bot - `/base_site None`"
+    
+    # If no argument is provided, show instructions
     if len(cmd) == 1:
         return await m.reply(text=text, disable_web_page_preview=True)
+    
+    # If the argument is provided
     elif len(cmd) == 2:
         base_site = cmd[1].strip()
-        if base_site == None:
-            await update_user_info(user_id, {"base_site": base_site})
-            return await m.reply("<b>Base Site updated successfully</b>")
-            
+        
+        # If the user wants to remove the base site
+        if base_site.lower() == "none":
+            await update_user_info(user_id, {"base_site": None})  # Set base_site to None
+            return await m.reply("<b>Base Site removed successfully</b>")
+        
+        # Check if the provided base site is a valid domain
         if not domain(base_site):
             return await m.reply(text=text, disable_web_page_preview=True)
+        
+        # Update the base site with the provided value
         await update_user_info(user_id, {"base_site": base_site})
         await m.reply("<b>Base Site updated successfully</b>")
+        
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
