@@ -47,7 +47,6 @@ def get_size(size):
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ0
 
-
 async def force_sub_check(client, user_id):
     try:
         # Check if the user is a member of the update channel
@@ -59,21 +58,20 @@ async def force_sub_check(client, user_id):
         
         # Otherwise, the user is not a member
         return False
-    
-    # Handle case where the user is not a participant
+
     except UserNotParticipant:
+        # User is not a participant in the channel
         return False
     
     # Handle permission or access-related issues
     except (ChatAdminRequired, ChannelPrivate) as e:
         logger.error(f"Bot lacks permission to check subscription or channel is private: {e}")
         return False
-    
+
     # Catch any other exceptions
     except Exception as e:
         logger.error(f"Unexpected error checking subscription status: {e}")
         return False
-
 
 
 @Client.on_message(filters.command("start") & filters.incoming)
@@ -84,19 +82,23 @@ async def start(client, message):
     is_subscribed = await force_sub_check(client, message.from_user.id)
     
     if not is_subscribed:
+        # Prompt user to join the update channel
         buttons = [[
             InlineKeyboardButton('🛸ᴜᴘᴅᴀᴛᴇ  ᴄʜᴀɴɴᴇʟ', url="https://t.me/Tetris_botz")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴜsᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ,  ʙᴜᴛ  ᴜ ʀ  ɴᴏᴛ \n\n ᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
+            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ,  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴍᴇᴍʙᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ.**\n\n**ᴘʟᴇᴀsᴇ ᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
             reply_markup=reply_markup
         )
         return
         
+    # User exists check and add user if not present
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
+
+    # Default response for /start without additional arguments
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
@@ -117,6 +119,7 @@ async def start(client, message):
             reply_markup=reply_markup
         )
         return
+        
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
