@@ -1,115 +1,56 @@
+# Don't Remove Credit @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
+# Ask Doubt on telegram @KingVJ01
+
 import re
-import requests
-from pyrogram import Client, filters, enums
+from pyrogram import filters, Client, enums
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from config import ADMINS, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
+from config import ADMINS, LOG_CHANNEL, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
 from plugins.database import unpack_new_file_id
 from plugins.users_api import get_user, get_short_link
-import os
 import re
+import os
 import json
 import base64
 import logging
 
-# Logging setup
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-def upload_image_requests(image_path):
-    """Upload image to the server."""
-    upload_url = "https://envs.sh"
-    try:
-        with open(image_path, 'rb') as file:
-            files = {'file': file}
-            response = requests.post(upload_url, files=files)
-            if response.status_code == 200:
-                return response.text.strip()
-            else:
-                raise Exception(f"Upload failed with status code {response.status_code}")
-    except Exception as e:
-        logger.error(f"Error during upload: {e}")
-        return None
-
 async def allowed(_, __, message):
-    """Check if the user is allowed to use the bot."""
     if PUBLIC_FILE_STORE:
         return True
     if message.from_user and message.from_user.id in ADMINS:
         return True
     return False
 
-# Handle Photo uploads
-@Client.on_message(filters.private & filters.create(allowed) & filters.photo)
-async def handle_photo(bot, message):
-    try:
-        photo_path = await message.download()
-        uploading_message = await message.reply_text("ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ....")
-        photo_url = upload_image_requests(photo_path)
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
 
-        if not photo_url:
-            raise Exception("Failed to upload photo.")
-
-        # Send success message with the photo link
-        await uploading_message.edit_text(
-            text=f"**ᴘʜᴏᴛᴏ ʜᴏsᴛᴇᴅ ᴏɴ ᴇɴᴠs.sʜ. ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ:**\n\n"
-                 f"ᴛᴀᴘ ʟɪɴᴋ ᴛᴏ ᴄᴏᴘʏ - <code>{photo_url}</code>",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton(text="ᴏᴘᴇɴ ʟɪɴᴋ", url=photo_url),
-                InlineKeyboardButton(text="sʜᴀʀᴇ ʟɪɴᴋ", url=f"https://telegram.me/share/url?url={photo_url}")
-            ]])
-        )
-        os.remove(photo_path)  # Clean up downloaded photo after processing
-
-    except Exception as e:
-        logger.error(f"Error handling photo: {e}")
-        await message.reply_text(f"An error occurred while processing the photo: {e}")
-
-
-# Handle Document, Video, and Audio uploads
-
-@Client.on_message(filters.private & filters.create(allowed) & (filters.document | filters.video | filters.audio))
-async def handle_media(bot, message):
-    try:
-        username = (await bot.get_me()).username
-        file_type = message.media
-        file_id, ref = unpack_new_file_id((getattr(message, file_type.value)).file_id)
-        string = 'file_'
-        string += file_id
-        outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        user_id = message.from_user.id
-        user = await get_user(user_id)
-
-        # Generate the file link
-        if WEBSITE_URL_MODE:
-            share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
-        else:
-            share_link = f"https://t.me/{username}?start={outstr}"
-
-        if user["base_site"] and user["shortener_api"]:
-            short_link = await get_short_link(user, share_link)
-            button_text = "ʜᴇʀᴇ's ᴛʜᴇ sʜᴏʀᴛ ʟɪɴᴋ"
-            button_link = short_link
-        else:
-            button_text = "ʀᴇᴛʀɪᴇᴠᴇ ᴏʀ ɢᴇᴛ ғɪʟᴇ"
-            button_link = share_link
-
-        # Reply with the link
-        reply_text = (
-            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n"
-            "**ᴄᴏɴᴛᴀɪɴs** - 1 **ғɪʟᴇ**\n\n"
-            "ʟᴏɴɢ ᴘʀᴇss ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴄᴏᴘʏ ᴏʀ sʜᴀʀᴇ ᴛʜᴇ ʟɪɴᴋ"
-        )
-        keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton(button_text, url=button_link)]
-        ])
-
-        await message.reply(reply_text, reply_markup=keyboard)
-
-    except Exception as e:
-        logger.error(f"Error handling media: {e}")
-        await message.reply_text(f"An error occurred while processing the media: {e}")
+@Client.on_message((filters.document | filters.video | filters.audio) & filters.private & filters.create(allowed))
+async def incoming_gen_link(bot, message):
+    username = (await bot.get_me()).username
+    file_type = message.media
+    file_id, ref = unpack_new_file_id((getattr(message, file_type.value)).file_id)
+    string = 'file_'
+    string += file_id
+    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+    user_id = message.from_user.id
+    user = await get_user(user_id)
+    if WEBSITE_URL_MODE == True:
+        share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
+    else:
+        share_link = f"https://t.me/{username}?start={outstr}"
+    if user["base_site"] and user["shortener_api"] != None:
+        short_link = await get_short_link(user, share_link)
+        await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</b>")
+    else:
+        await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
         
 
 @Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
@@ -117,12 +58,16 @@ async def gen_link_s(bot, message):
     username = (await bot.get_me()).username
     replied = message.reply_to_message
     if not replied:
-        return await message.reply('ʀᴇᴘʟʏ  ᴛᴏ  ᴀ  ғɪʟᴇ  ᴛᴏ  sᴛᴏʀɪɴɢ  ᴛʜᴀᴛ  ғɪʟᴇ')
+        return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
     if file_type not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
         return await message.reply("**ʀᴇᴘʟʏ ᴛᴏ ᴀ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀ**")
     if message.has_protected_content and message.chat.id not in ADMINS:
         return await message.reply("okDa")
+
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
     
     file_id, ref = unpack_new_file_id((getattr(replied, file_type.value)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
@@ -130,31 +75,20 @@ async def gen_link_s(bot, message):
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     user_id = message.from_user.id
     user = await get_user(user_id)
-    if WEBSITE_URL_MODE:
+    if WEBSITE_URL_MODE == True:
         share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
     else:
         share_link = f"https://t.me/{username}?start={outstr}"
-    if user["base_site"] and user["shortener_api"]:
+    if user["base_site"] and user["shortener_api"] != None:
         short_link = await get_short_link(user, share_link)
-        button_text = "ʜᴇʀᴇs  ᴛʜᴇ  sʜᴏʀᴛᴇɴ  ʟɪɴᴋ"
-        button_link = short_link
+        await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</b>")
     else:
-        button_text = "ʀᴇᴛʀɪᴇᴠᴇ  ᴏʀ  ɢᴇᴛ  ғɪʟᴇ"
-        button_link = share_link
-    
-    reply_text = (
-        "**⭕ ғɪʟᴇ  sᴛᴏʀᴇᴅ  ғᴏʀ  ʀᴇᴛʀɪᴇᴠɪɴɢ  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**\n"
-        "**ᴄᴏɴᴛᴀɪɴs** - 1 **ғɪʟᴇ**\n\n"
-        "long press below button to copy or share the link"
-    )
-    keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton(button_text, url=button_link)]
-    ])
-    
-    await message.reply(reply_text, reply_markup=keyboard)
+        await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
+        
 
-# Example import for the approval check
-
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
 
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
@@ -269,4 +203,3 @@ async def gen_link_batch(bot, message):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
