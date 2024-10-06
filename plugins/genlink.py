@@ -29,6 +29,50 @@ async def allowed(_, __, message):
         return True
     return False
 
+
+def upload_image_requests(image_path):
+    """Upload image to the server."""
+    upload_url = "https://envs.sh"
+    try:
+        with open(image_path, 'rb') as file:
+            files = {'file': file}
+            response = requests.post(upload_url, files=files)
+            if response.status_code == 200:
+                return response.text.strip()
+            else:
+                raise Exception(f"Upload failed with status code {response.status_code}")
+    except Exception as e:
+        logger.error(f"Error during upload: {e}")
+        return None
+
+
+# Handle Photo uploads
+@Client.on_message(filters.private & filters.create(allowed) & filters.photo)
+async def handle_photo(bot, message):
+    try:
+        photo_path = await message.download()
+        uploading_message = await message.reply_text("ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ....")
+        photo_url = upload_image_requests(photo_path)
+
+        if not photo_url:
+            raise Exception("Failed to upload photo.")
+
+        # Send success message with the photo link
+        await uploading_message.edit_text(
+            text=f"**ᴘʜᴏᴛᴏ ʜᴏsᴛᴇᴅ ᴏɴ ᴇɴᴠs.sʜ. ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ:**\n\n"
+                 f"ᴛᴀᴘ ʟɪɴᴋ ᴛᴏ ᴄᴏᴘʏ - <code>{photo_url}</code>",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton(text="ᴏᴘᴇɴ ʟɪɴᴋ", url=photo_url),
+                InlineKeyboardButton(text="sʜᴀʀᴇ ʟɪɴᴋ", url=f"https://telegram.me/share/url?url={photo_url}")
+            ]])
+        )
+        os.remove(photo_path)  # Clean up downloaded photo after processing
+
+    except Exception as e:
+        logger.error(f"Error handling photo: {e}")
+        await message.reply_text(f"An error occurred while processing the photo: {e}")
+        
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
