@@ -24,20 +24,6 @@ logger.setLevel(logging.INFO)
 
 
 
-def upload_image_requests(image_path):
-    """Upload image to the server."""
-    upload_url = "https://envs.sh"
-    try:
-        with open(image_path, 'rb') as file:
-            files = {'file': file}
-            response = requests.post(upload_url, files=files)
-            if response.status_code == 200:
-                return response.text.strip()
-            else:
-                raise Exception(f"Upload failed with status code {response.status_code}")
-    except Exception as e:
-        logger.error(f"Error during upload: {e}")
-        return None
 
 async def allowed(_, __, message):
     if PUBLIC_FILE_STORE:
@@ -46,33 +32,71 @@ async def allowed(_, __, message):
         return True
     return False
 
+def upload_image_requests(image_path):
+    """Upload image to the server."""
+    upload_url = "https://envs.sh"  # Make sure this URL is correct and functional
+    try:
+        with open(image_path, 'rb') as file:
+            files = {'file': file}
+            # Adding timeout for the request (e.g., 30 seconds)
+            response = requests.post(upload_url, files=files, timeout=30)
+            
+            # Logging the response status and content
+            logger.info(f"Upload response status: {response.status_code}")
+            logger.debug(f"Upload response content: {response.text}")
+
+            if response.status_code == 200:
+                return response.text.strip()  # Ensure this returns the actual URL
+            else:
+                raise Exception(f"Upload failed with status code {response.status_code}")
+    except requests.exceptions.Timeout:
+        logger.error("Upload timed out.")
+        return None
+    except Exception as e:
+        logger.error(f"Error during upload: {e}")
+        return None
+
 
 # Handle Photo uploads
-@Client.on_message(filters.private & filters.create(allowed) & filters.photo)
+@Client.on_message(filters.private & filters.photo)
 async def handle_photo(bot, message):
     try:
+        # Download the photo to the local system
         photo_path = await message.download()
-        uploading_message = await message.reply_text("ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ....")
+        if not photo_path:
+            raise Exception("Failed to download photo.")
+
+        # Inform the user that the upload process is starting
+        uploading_message = await message.reply_text("Uploading photo...")
+
+        # Upload the photo to the external server
         photo_url = upload_image_requests(photo_path)
 
+        # If the upload fails, raise an error
         if not photo_url:
-            raise Exception("Failed to upload photo.")
+            raise Exception("Failed to upload photo to the server. Please try again later.")
 
-        # Send success message with the photo link
+        # Edit the message to show the hosted photo URL and options
         await uploading_message.edit_text(
-            text=f"**ᴘʜᴏᴛᴏ ʜᴏsᴛᴇᴅ ᴏɴ ᴇɴᴠs.sʜ. ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ:**\n\n"
-                 f"ᴛᴀᴘ ʟɪɴᴋ ᴛᴏ ᴄᴏᴘʏ - <code>{photo_url}</code>",
+            text=f"**Photo hosted successfully. Here's the link:**\n\n"
+                 f"Tap link to copy: <code>{photo_url}</code>",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton(text="ᴏᴘᴇɴ ʟɪɴᴋ", url=photo_url),
-                InlineKeyboardButton(text="sʜᴀʀᴇ ʟɪɴᴋ", url=f"https://telegram.me/share/url?url={photo_url}")
+                InlineKeyboardButton(text="Open Link", url=photo_url),
+                InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url={photo_url}")
             ]])
         )
-        os.remove(photo_path)  # Clean up downloaded photo after processing
+
+        # Clean up: remove the downloaded photo file from local storage
+        os.remove(photo_path)
 
     except Exception as e:
+        # Log the error details for debugging
         logger.error(f"Error handling photo: {e}")
         await message.reply_text(f"An error occurred while processing the photo: {e}")
+
+
+
         
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
