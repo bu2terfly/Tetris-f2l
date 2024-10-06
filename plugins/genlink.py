@@ -22,12 +22,6 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-async def allowed(_, __, message):
-    if PUBLIC_FILE_STORE:
-        return True
-    if message.from_user and message.from_user.id in ADMINS:
-        return True
-    return False
 
 
 def upload_image_requests(image_path):
@@ -44,6 +38,13 @@ def upload_image_requests(image_path):
     except Exception as e:
         logger.error(f"Error during upload: {e}")
         return None
+
+async def allowed(_, __, message):
+    if PUBLIC_FILE_STORE:
+        return True
+    if message.from_user and message.from_user.id in ADMINS:
+        return True
+    return False
 
 
 # Handle Photo uploads
