@@ -103,7 +103,8 @@ async def start(client, message):
     
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
-        await message.reply(
+        await message.reply_video(
+            video=random.choice(PICS),
             text=script.START_TXT.format(message.from_user.mention, me2),
             reply_markup=reply_markup,
             disable_web_page_preview=False
