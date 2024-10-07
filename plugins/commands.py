@@ -94,9 +94,11 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🪧ʜᴏᴡ  ᴛᴏ  ᴜsᴇ', callback_data='help')
-        ], [
+        ],[
             InlineKeyboardButton('🛸ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/tetris_botz'),
             InlineKeyboardButton('ᴡᴀʀɴɪɴɢ⚠️', callback_data='about')
+        ],[
+            InlineKeyboardButton('ᴅᴏɴᴀᴛᴇ  ᴛᴏ  ᴜɴʟᴏᴄᴋ  ᴘʀᴇᴍɪᴜᴍ', callback_data='pay')
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -433,6 +435,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton('🛸ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/tetris_botz'),
             InlineKeyboardButton('ᴡᴀʀɴɪɴɢ⚠️', callback_data='about')
+            ],[
+            InlineKeyboardButton('ᴅᴏɴᴀᴛᴇ  ᴛᴏ  ᴜɴʟᴏᴄᴋ  ᴘʀᴇᴍɪᴜᴍ', callback_data='pay')
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
