@@ -107,7 +107,7 @@ async def start(client, message):
             video=random.choice(PICS),
             text=script.START_TXT.format(message.from_user.mention, me2),
             reply_markup=reply_markup,
-            disable_web_page_preview=False
+            disable_web_page_preview=True
         )
         return
     
