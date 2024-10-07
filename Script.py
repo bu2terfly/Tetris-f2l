@@ -6,7 +6,7 @@
 class script(object):
     START_TXT = """<i>ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ🧩
 
-[➜](https://telegra.ph/file/f61b82c865be4f2471afe.mp4)  sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ
+➜  sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ
 ➜  ɢᴇɴᴇʀᴀᴛᴇ  ᴅᴏᴡɴʟᴏᴀᴅ  ʟɪɴᴋ
 ➜  ᴀᴅᴅ  ʏᴏᴜʀ  ᴏᴡɴ  sʜᴏʀᴛɴᴇʀ 
 ➜  ɪᴍᴀɢᴇ  ʜᴏsᴛɪɴɢ  ɢɪᴠᴇs  ʟɪɴᴋ
@@ -89,11 +89,11 @@ If You Want To Remove Api Then Copy This And Send To Bot - `/api None`"""
 
 ᴄᴏᴍᴍᴀɴᴅs :**
 
-**/batch** - for  generate  link  for  multiple  files  from  channel  at  once ,  send  this  cmnd  for  tutorial
-**/shortner** - for  set  your  own  shortner , send  this  cmnd  for  tutorial
-**/api** - for  adding  your  shortner  api , send  this  cmnd  for  tutorial
+**/batch - for  generate  link  for  multiple  files  from  channel  at  once ,  send  this  cmnd  for  tutorial
+/shortner - for  set  your  own  shortner , send  this  cmnd  for  tutorial
+/api - for  adding  your  shortner  api , send  this  cmnd  for  tutorial**
 
-**ᴀɴʏ  ᴏᴛʜᴇʀs  ʜᴇʟᴘ  ᴄᴏɴᴛᴀᴄᴛ  [ᴀᴅᴍɪɴ](https://telegra.ph/file/6b18b34bad2f27c96afe8.mp4)**"""
+**ᴀɴʏ  ᴏᴛʜᴇʀs  ʜᴇʟᴘ  ᴄᴏɴᴛᴀᴄᴛ  ᴀᴅᴍɪɴ**"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
