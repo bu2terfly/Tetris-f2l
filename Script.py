@@ -4,7 +4,17 @@
 
 
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ {},ᴍʏ ɴᴀᴍᴇ {},【ɪ ᴀᴍ ʟᴀᴛᴇꜱᴛ ᴀᴅᴠᴀɴᴄᴇᴅ】ᴀɴᴅ ᴘᴏᴡᴇʀꜰᴜʟ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ +└ᴄʟᴏɴᴇ ғᴇᴀᴛᴜʀᴇ┘+└sᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴇᴀᴛᴜʀᴇ┘+├ᴄᴜꜱᴛᴏᴍ ᴜʀʟ ꜱʜᴏʀᴛɴᴇʀ ꜱᴜᴘᴘᴏʀᴛ┤+  ᢵᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ sᴜᴘᴘᴏʀᴛ ᢴ ᢾᴀɴᴅ ʙᴇꜱᴛ ᴜɪ ᴘᴇʀꜰᴏʀᴍᴀɴᴄᴇᢿ</b>"""
+    START_TXT = """<i>ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ🧩
+
+[➜](https://telegra.ph/file/f61b82c865be4f2471afe.mp4)  sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ
+➜  ɢᴇɴᴇʀᴀᴛᴇ  ᴅᴏᴡɴʟᴏᴀᴅ  ʟɪɴᴋ
+➜  ᴀᴅᴅ  ʏᴏᴜʀ  ᴏᴡɴ  sʜᴏʀᴛɴᴇʀ 
+➜  ɪᴍᴀɢᴇ  ʜᴏsᴛɪɴɢ  ɢɪᴠᴇs  ʟɪɴᴋ
+➜  ʙᴀᴛᴄʜ  ʟɪɴᴋ  ɢᴇɴᴇʀᴀᴛᴇ
+
+ᴊᴜsᴛ  sᴇɴᴅ  ᴀ  ғɪʟᴇ  ᴛᴏ  ᴍᴇ  ᴀɴᴅ  ʙᴏᴏᴍ
+
+➜ [ᴀᴅᴅ  ᴛᴏ  ᴄʜᴀɴɴᴇʟ](https://t.me/File_share_stream_bot?startchannel=s&admin)</i>"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
