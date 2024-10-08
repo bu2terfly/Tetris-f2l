@@ -153,7 +153,7 @@ async def start(client, message):
                 return
         except Exception as e:
             return await message.reply_text(f"**Error - {e}**")
-        sts = await message.reply("**🔻 ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ....**")
+        sts = await message.reply("**🔻 ᴜᴘʟᴏᴀᴅɪɴɢ....**")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -203,8 +203,8 @@ async def start(client, message):
                     )
                 if STREAM_MODE == True:
                     button = [[
-                        InlineKeyboardButton("💡sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stream),  # we download Link
-                        InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ⚡', url=stream)
+                        InlineKeyboardButton("✦ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stream),  # we download Link
+                        InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=download)
                     ],[
                         InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
                     ]]
@@ -237,14 +237,14 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         if AUTO_DELETE_MODE == True:
-            k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ : this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime**")
+            k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
             await asyncio.sleep(AUTO_DELETE_TIME)
             for x in filesarr:
                 try:
                     await x.delete()
                 except:
                     pass
-            await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
+            await k.edit_text("**ғɪʟᴇs  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ**")
         return
 
 
@@ -289,7 +289,7 @@ async def start(client, message):
                         [
                             [
                                 InlineKeyboardButton(
-                                    '🧩ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ/sᴛʀᴇᴀᴍ  ʟɪɴᴋ🧩', callback_data=f'generate_stream_link:{file_id}'
+                                    '✦ ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ/sᴛʀᴇᴀᴍ  ʟɪɴᴋ ✦', callback_data=f'generate_stream_link:{file_id}'
                                 )
                             ]
                         ]
@@ -304,11 +304,11 @@ async def start(client, message):
                 except:
                     pass
                 await g.delete()
-                await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
+                await k.edit_text("<b>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</b>")
             return
         except:
             pass
-        return await message.reply('No such file exist.')
+        return await message.reply('**ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ**')
 
 
     
@@ -349,7 +349,7 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🧩ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ/sᴛʀᴇᴀᴍ  ʟɪɴᴋ🧩', callback_data=f'generate_stream_link:{file_id}')
+                        InlineKeyboardButton('✦ ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ/sᴛʀᴇᴀᴍ  ʟɪɴᴋ ✦', callback_data=f'generate_stream_link:{file_id}')
                     ]
                 ]
             )
@@ -361,7 +361,7 @@ async def start(client, message):
             await x.delete()
         except:
             pass
-        await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")       
+        await k.edit_text("<b>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</b>")       
         
 
 @Client.on_message(filters.command('api') & filters.private)
@@ -380,16 +380,16 @@ async def shortener_api_handler(client, m: Message):
         await m.reply("**sʜᴏʀᴛɴᴇʀ  ᴀᴘɪ  ᴀᴅᴅᴇᴅ  ʜᴇʀᴇs  ɪᴛ  ɪs - **" + api)
 
 
-@Client.on_message(filters.command("base_site") & filters.private)
+@Client.on_message(filters.command("shortner") & filters.private)
 async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
     
     if user_id not in P_USERS:
-        return await m.reply("<b>You are not authorized to use this command.</b>")
+        return await m.reply("**ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n /shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
             
     user = await get_user(user_id)
     cmd = m.command
-    text = f"`/base_site (base_site)`\n\n<b>Current base site: None\n\n EX:</b> `/base_site shortnerdomain.com`\n\nIf You Want To Remove Base Site Then Copy This And Send To Bot - `/base_site None`"
+    text = f"ɪɴᴠᴀʟɪᴅ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs : \n\n**/shortner (shortnerdomain)\nᴇxᴍᴘʟᴇ** - `/shortner shrinkme.link `\n\nTo  remove  shortner  send  this👉🏻 `/shortner none`"
     
     # If no argument is provided, show instructions
     if len(cmd) == 1:
@@ -402,7 +402,7 @@ async def base_site_handler(client, m: Message):
         # If the user wants to remove the base site
         if base_site.lower() == "none":
             await update_user_info(user_id, {"base_site": None})  # Set base_site to None
-            return await m.reply("<b>Base Site removed successfully</b>")
+            return await m.reply("<b>sʜᴏʀᴛɴᴇʀ  ʀᴇᴍᴏᴠᴇᴅ..... ᴄʜᴇᴄᴋ  ʜᴇʀᴇ 👉🏻  /api</b>")
         
         # Check if the provided base site is a valid domain
         if not domain(base_site):
@@ -410,7 +410,7 @@ async def base_site_handler(client, m: Message):
         
         # Update the base site with the provided value
         await update_user_info(user_id, {"base_site": base_site})
-        await m.reply("<b>Base Site updated successfully</b>")
+        await m.reply("<b>sʜᴏʀᴛɴᴇʀ  ᴜᴘᴅᴀᴛᴇᴅ...... ᴄʜᴇᴄᴋ  ʜᴇʀᴇ 👉🏻 /api</b>")
 
 
 @Client.on_callback_query()
@@ -458,10 +458,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "pay":
         buttons = [[
-            InlineKeyboardButton('🎟️ᴘᴀʏ  ᴀɴᴅ  ɢᴇᴛ  ᴀ  ᴄʟᴏɴᴇ', callback_data='payment')
+            InlineKeyboardButton('💸ᴄʟɪᴄᴋ  ʜᴇʀᴇ  ᴛᴏ  ᴅᴏɴᴀᴛᴇ', callback_data='payment')
         ],[
             InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('ᴅᴇᴍᴏ🤖', url='https://t.me/demo01234_bot')
+            InlineKeyboardButton('ᴀᴅᴍɪɴ🛸', url='https://t.me/tetris_admino_bot')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -478,7 +478,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('ᴀᴅᴍɪɴ', url='https://t.me/Tetris_admino_bot')
+            InlineKeyboardButton('ᴀᴅᴍɪɴ🛸', url='https://t.me/Tetris_admino_bot')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -489,11 +489,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "payment":
-        new_image_path = "https://envs.sh/S5T.jpg"
+        new_image_path = "https://telegra.ph/file/4a0a3ac73658ff4c68dff.jpg"
         await query.message.edit_media(
-            media=InputMediaPhoto(new_image_path, caption=script.HELP_TXT),
+            media=InputMediaPhoto(new_image_path, caption=script.PAYMENT),
             reply_markup=InlineKeyboardMarkup([[
-             InlineKeyboardButton("ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ✅", callback_data = "paid")]])) 
+             InlineKeyboardButton("ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ ✅", callback_data = "paid")]])) 
     
     
     elif query.data == "paid":
@@ -545,7 +545,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
             download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-            xo = await query.message.reply_text(f'🔐')
+            xo = await query.message.reply_text(f'⌨️')
             await asyncio.sleep(1)
             await xo.delete()
 
@@ -565,8 +565,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("💡sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=download),  # we download Link
-                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ⚡', url=stream)
+                InlineKeyboardButton("✦ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=download),  # we download Link
+                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=stream)
             ],[
                 InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
             ]]
