@@ -4,17 +4,17 @@
 
 
 class script(object):
-    START_TXT = """<i>ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ🧩
+    START_TXT = """<i>ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ </i>🧩
 
-➜  sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ
-➜  ɢᴇɴᴇʀᴀᴛᴇ  ᴅᴏᴡɴʟᴏᴀᴅ  ʟɪɴᴋ
-➜  ᴀᴅᴅ  ʏᴏᴜʀ  ᴏᴡɴ  sʜᴏʀᴛɴᴇʀ 
-➜  ɪᴍᴀɢᴇ  ʜᴏsᴛɪɴɢ  ɢɪᴠᴇs  ʟɪɴᴋ
-➜  ʙᴀᴛᴄʜ  ʟɪɴᴋ  ɢᴇɴᴇʀᴀᴛᴇ
+➜  <i>sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ</i>
+➜  <i>ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ  ʟɪɴᴋ</i>
+➜  <i>ᴀᴅᴅ  ʏᴏᴜʀ  ᴏᴡɴ  sʜᴏʀᴛɴᴇʀ  ᴀɴᴅ  ᴇᴀʀɴ</i> 
+➜  <i>ʜᴏsᴛ  ɪᴍᴀɢᴇ  ɢɪᴠᴇs  ʟɪɴᴋ (telegraph)</i>
+➜  <i>ɢᴇɴᴇʀᴀᴛᴇ  ʟɪɴᴋ  ᴅɪʀᴇᴄᴛʟʏ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ  
 
-ᴊᴜsᴛ  sᴇɴᴅ  ᴀ  ғɪʟᴇ  ᴛᴏ  ᴍᴇ  ᴀɴᴅ  ʙᴏᴏᴍ
+ᴊᴜsᴛ  sᴇɴᴅ  ᴀ  ғɪʟᴇ  ᴛᴏ  ᴍᴇ  ᴀɴᴅ  ʙᴏᴏᴍ</i>
 
-➜ [ᴀᴅᴅ  ᴛᴏ  ᴄʜᴀɴɴᴇʟ](https://t.me/File_share_stream_bot?startchannel=s&admin)</i>"""
+✦ <i>[ᴀᴅᴅ  ᴛᴏ  ᴄʜᴀɴɴᴇʟ](https://t.me/File_share_stream_bot?startchannel=s&admin)</i>"""
 
 
     
@@ -24,15 +24,15 @@ class script(object):
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-    SHORTENER_API_MESSAGE = """<b>Tᴏ ᴀᴅᴅ ᴏʀ ᴜᴘᴅᴀᴛᴇ ʏᴏᴜʀ Sʜᴏʀᴛɴᴇʀ Wᴇʙsɪᴛᴇ API, /api (ᴀᴘɪ)
+    SHORTENER_API_MESSAGE = """**ᴜsᴇ  ᴛʜɪs  ғᴏʀᴍᴀᴛ  ᴛᴏ  ᴀᴅᴅ  sʜᴏʀᴛɴᴇʀ  ᴀᴘɪ**
             
-<b>Ex: /api 𝟼LZǫ𝟾𝟻𝟷sXᴏғғғPHᴜɢɪKQǫ
+**/api [shortner api] \nᴇx** - /api afw3815Hssk2djsk248sjJs
 
-<b>Cᴜʀʀᴇɴᴛ Wᴇʙsɪᴛᴇ: {base_site}
+**ᴄᴜʀʀᴇɴᴛ  sʜᴏʀᴛɴᴇʀ  ᴅᴏᴍᴀɪɴ : {base_site}
 
-Cᴜʀʀᴇɴᴛ Sʜᴏʀᴛᴇɴᴇʀ API:</b> `{shortener_api}`
+ᴄᴜʀʀᴇɴᴛ sʜᴏʀᴛᴇɴᴇʀ ᴀᴘɪ: `{shortener_api}`**
 
-If You Want To Remove Api Then Copy This And Send To Bot - `/api None`"""
+To  remove  api  send  this 👉🏻 `/api None`"""
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
@@ -44,7 +44,7 @@ If You Want To Remove Api Then Copy This And Send To Bot - `/api None`"""
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-    ABOUT_TXT = """**[⚠️](https://envs.sh/ITS.mp4)ᴡᴀʀɴɪɴɢ !  ᴄᴏɴᴛᴇɴᴛ  ʀᴇsᴛɪᴄᴛɪᴏɴ** 
+    ABOUT_TXT = """**⚠️ ᴡᴀʀɴɪɴɢ !  ᴄᴏɴᴛᴇɴᴛ  ʀᴇsᴛɪᴄᴛɪᴏɴ** 
 
 📌 Sending  of  pornographic  content  in  bot  will result  in  an  immediate  ban  and  being  reported.
 
@@ -65,21 +65,28 @@ If You Want To Remove Api Then Copy This And Send To Bot - `/api None`"""
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+    PAYMENT = """**ᴛʜᴀɴᴋ  ʏᴏᴜ  ғᴏʀ  ᴄᴏɴsɪᴅᴇʀɪɴɢ  ᴅᴏɴᴀᴛɪᴏɴ
 
-    CLONE_TXT = """**ᴄʀᴇᴀᴛᴇ💡  ᴀ  ᴄʟᴏɴᴇ  ᴏғ  ᴛʜɪs  ʙᴏᴛ🤖  ғᴏʀ  \nʏᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴡɪᴛʜ  ғᴜʟʟ   ᴀᴜᴛʜᴏʀɪᴛʏ 
+💸sᴄᴀɴ  ᴀʙᴏᴠᴇ  ǫʀ  ᴀɴᴅ  ᴘᴀʏ  ᴀɴʏ  ᴀᴍᴏᴜɴᴛ  ᴀғᴛᴇʀ  ᴘᴀʏᴍᴇɴᴛ  ᴄʟɪᴄᴋ  ᴏɴ  ᴀᴍᴏᴜɴᴛ  ᴘᴀɪᴅ** 
 
-ғᴇᴀᴛᴜʀᴇs** : 
+donate  25$  or  more  to  unlock  premium  command"""
+    
+    CLONE_TXT = """**ᴅᴏɴᴀᴛᴇ💸  ᴀɴʏ  ᴀᴍᴏᴜɴᴛ  ᴛᴏ  ғᴜɴᴅ  ᴏᴜʀ  ᴡᴏʀᴋ . ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʜᴇʟᴘ  ᴜs  ᴛᴏ  ᴘᴀʏ  ᴏᴜʀ  ʙᴏᴛ  sᴇʀᴠᴇʀ  ᴇxᴘᴀɴsᴇs  sᴏ  ʙᴏᴛs  ᴄᴀɴ  ʀᴜɴ  24/7
 
-• store  files  and  gives  link  to  share  with  users 
-• 24/7  online  and  ads  free  userfriendly  ui
-• u  can  add  custom  shortner  to  earn
-• generate  batch  link  for  multiple  files
-• force  sub  free ,  no  broadcasting  from  main 
-• only  you  can  broadcast  in  your  bot
+ᴏᴜʀ  ᴛᴏᴘ  ᴅᴏɴᴀᴛᴇʀs  &   ᴛʜᴇɪʀ  ᴄʜᴀɴɴᴇʟs**
 
-🏷️**ᴘʀɪᴄᴇ**  -  149₹  **ᴘᴇʀ  ʏᴇᴀʀ** 
-
-**ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ  ᴛᴏ  ɢᴇᴛ  ʏᴏᴜʀ  ᴏᴡɴ  ʙᴏᴛ**"""
+<blockquote expandable>1️⃣ subhas dixit   👉🏻  @all_rounders               100₹
+2️⃣ Deaxtrom  👉🏻  @purohits_bots                  100₹
+3️⃣ SurXpratim 👉🏻 @babana                             70₹
+4️⃣ Bordzola  👉🏻 @movies_time                       43₹
+3️⃣ SurXpratim 👉🏻 @babana                             70₹
+4️⃣ Bordzola  👉🏻 @movies_time                       43₹
+3️⃣ SurXpratim 👉🏻 @babana                             70₹
+4️⃣ Bordzola  👉🏻 @movies_time                       43₹
+3️⃣ SurXpratim 👉🏻 @babana                             70₹
+5️⃣ Kanak gwalior  👉🏻 @creates_enemy           35₹</blockquote>
+﻿
+**ᴅᴏɴᴀᴛᴇ**  ₹25  ᴏʀ  ᴀʙᴏᴠᴇ  ᴀɴᴅ  ɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ  ᴀɴᴅ  ᴀ  sᴜʀᴘʀɪsᴇ  ɢɪғᴛ**"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -90,7 +97,9 @@ If You Want To Remove Api Then Copy This And Send To Bot - `/api None`"""
 ᴄᴏᴍᴍᴀɴᴅs :**
 
 **/batch - for  generate  link  for  multiple  files  from  channel  at  once ,  send  this  cmnd  for  tutorial
+
 /shortner - for  set  your  own  shortner , send  this  cmnd  for  tutorial
+
 /api - for  adding  your  shortner  api , send  this  cmnd  for  tutorial**
 
 **ᴀɴʏ  ᴏᴛʜᴇʀs  ʜᴇʟᴘ  ᴄᴏɴᴛᴀᴄᴛ  ᴀᴅᴍɪɴ**"""
