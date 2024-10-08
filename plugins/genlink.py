@@ -68,23 +68,23 @@ async def handle_photo(bot, message):
             raise Exception("Failed to download photo.")
 
         # Inform the user that the upload process is starting
-        uploading_message = await message.reply_text("Uploading photo...")
+        uploading_message = await message.reply_text("ᴜᴘʟᴏᴀᴅɪɴɢ  ɪᴍᴀɢᴇ....")
 
         # Upload the photo to the external server
         photo_url = upload_image_requests(photo_path)
 
         # If the upload fails, raise an error
         if not photo_url:
-            raise Exception("Failed to upload photo to the server. Please try again later.")
+            raise Exception("ғᴀɪʟᴇᴅ  ᴛᴏ  ᴜᴘʟᴏᴀᴅ....  ᴄᴏɴᴛᴀᴄᴛ  ᴀᴅᴍɪɴ")
 
         # Edit the message to show the hosted photo URL and options
         await uploading_message.edit_text(
-            text=f"**Photo hosted successfully. Here's the link:**\n\n"
-                 f"Tap link to copy: <code>{photo_url}</code>",
+            text=f"**🌄ᴘʜᴏᴛᴏ  ʜᴏsᴛᴇᴅ  ᴏɴ  ᴇɴᴠs.sʜ  ʟɪɴᴋs  ʜᴇʀᴇ:**\n\n"
+                 f"ᴛᴀᴘ  ʟɪɴᴋ  ᴛᴏ  ᴄᴏᴘʏ: <code>{photo_url}</code>",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton(text="Open Link", url=photo_url),
-                InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url={photo_url}")
+                InlineKeyboardButton(text="ᴏᴘᴇɴ  ʟɪɴᴋ", url=photo_url),
+                InlineKeyboardButton(text="sʜᴀʀᴇ  ʟɪɴᴋ", url=f"https://telegram.me/share/url?url={photo_url}")
             ]])
         )
 
@@ -131,9 +131,9 @@ async def handle_media(bot, message):
 
         # Reply with the link
         reply_text = (
-            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n"
+            "**ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n"
             "**ᴄᴏɴᴛᴀɪɴs** - 1 **ғɪʟᴇ**\n\n"
-            "ʟᴏɴɢ ᴘʀᴇss ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴄᴏᴘʏ ᴏʀ sʜᴀʀᴇ ᴛʜᴇ ʟɪɴᴋ"
+            "long press buttons to copy the link and share"
         )
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton(button_text, url=button_link)]
@@ -154,7 +154,7 @@ async def gen_link_batch(bot, message):
     
     # Check if the user is in the approved users list
     if user_id not in P_USERS:
-        return await message.reply("<b>You are not authorized to use this command.</b>")
+        return await message.reply("**ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss \n\nɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴛᴏ  ᴜsᴇ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ᴛᴏ  ɢᴇɴᴇʀᴀᴛᴇ  ʟɪɴᴋs  ғᴏʀ  ᴍᴜʟᴛɪᴘʟᴇ  ғɪʟᴇs  ᴅɪʀᴇᴄᴛ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ  ᴀᴛ  ᴏɴᴄᴇ**")
     
     username = (await bot.get_me()).username
     if " " not in message.text:
