@@ -131,7 +131,7 @@ async def handle_media(bot, message):
 
         # Reply with the link
         reply_text = (
-            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n\n
+            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n\n"
             "long press buttons to copy the link and share"
         )
         keyboard = InlineKeyboardMarkup([
