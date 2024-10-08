@@ -520,15 +520,32 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "paid":
         user_id = query.from_user.id
         user_mention = query.from_user.mention
+        
+        log_message = (
+            f"🇷 🇪 🇲 🇮 🇳 🇩 🇪 🇷 🇸 \n\n"
+            f"**ᴜsᴇʀɴᴀᴍᴇ** - {user_mention}\n"
+            f"**ɪᴅ**: <code>{user_id}</code>\n"
+            f"**ᴀᴄᴛɪᴏɴ** - ᴅᴏɴᴀᴛᴇ\n"
+            f"**ᴛɪᴍᴇ** - ᴄʜᴇᴄᴋ ʜᴇʀᴇ👉🏻"
+        )
 
-    # Step 1: Change the message to ask for name and channel link
+        
+
+        # Sending log message to the admin log channel
+        await client.send_message(LOG_CHANNEL, text=log_message)
+
+        # Step 2: Respond to the user with transaction details
         await query.message.edit_text(
             text=(
-                "**ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ʏᴏᴜʀ ɴᴀᴍᴇ ᴀɴᴅ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ**\n\n"
-                "Format: `Your Name` `Your Channel Link`\n\n"
-                "**ᴀᴅʟᴜʙʟᴏɢʏ -** Your information will be sent to the admin."
+                "**🥳ᴅᴇᴇᴘʟʏ  ɢʀᴀᴛᴇғᴜʟʟ  ᴛᴏ  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ💸 \n\nsᴛᴀᴛᴜs - ᴛʀᴀɴsᴀᴄᴛɪᴏɴ  ᴘʀᴏᴄᴇssɪɴɢ🔄**\n"
+                f"**ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ɪᴅ:** FLC28<code>{user_id}</code>P\n\n"
+                "Admin  will  verify  your  transaction  . and  approve  premium  command  for  you  shortly .  Just  wait  some  minutes\n\n"
+                "**ɴᴏᴛᴇ -** send you channel link or any other content to admin for showcasing. also mention your transaction ID "
             ),
             disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("🛸ᴀᴅᴍɪɴ", url="https://t.me/tetris_admino_bot")]
+            ])
         )
 
 @client.on_message(filters.private & filters.text & filters.user(user_id))
