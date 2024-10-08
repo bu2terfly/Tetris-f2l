@@ -383,6 +383,10 @@ async def shortener_api_handler(client, m: Message):
 @Client.on_message(filters.command("base_site") & filters.private)
 async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
+    
+    if user_id not in P_USERS:
+        return await m.reply("<b>You are not authorized to use this command.</b>")
+            
     user = await get_user(user_id)
     cmd = m.command
     text = f"`/base_site (base_site)`\n\n<b>Current base site: None\n\n EX:</b> `/base_site shortnerdomain.com`\n\nIf You Want To Remove Base Site Then Copy This And Send To Bot - `/base_site None`"
@@ -489,7 +493,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_media(
             media=InputMediaPhoto(new_image_path, caption=script.HELP_TXT),
             reply_markup=InlineKeyboardMarkup([[
-             InlineKeyboardButton("ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ✅", callback_data = "final")]])) 
+             InlineKeyboardButton("ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ✅", callback_data = "paid")]])) 
     
     
     elif query.data == "paid":
