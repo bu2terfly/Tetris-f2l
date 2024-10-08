@@ -93,21 +93,22 @@ async def start(client, message):
     
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🪧ʜᴏᴡ  ᴛᴏ  ᴜsᴇ', callback_data='help')
-        ],[
-            InlineKeyboardButton('🛸ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/tetris_botz'),
-            InlineKeyboardButton('ᴡᴀʀɴɪɴɢ⚠️', callback_data='about')
-        ],[
-            InlineKeyboardButton('ᴅᴏɴᴀᴛᴇ  ᴛᴏ  ᴜɴʟᴏᴄᴋ  ᴘʀᴇᴍɪᴜᴍ', callback_data='pay')
+            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
+            ],[
+            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
+            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
+            ],[
+            InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
-    
+        if CLONE_MODE == True:
+            buttons.append([InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
         await message.reply_photo(
             photo=random.choice(PICS),
-            text=script.START_TXT.format(message.from_user.mention, me2),
-            reply_markup=reply_markup,
-            disable_web_page_preview=True
+            caption=script.START_TXT.format(message.from_user.mention, me2),
+            reply_markup=reply_markup
         )
         return
     
