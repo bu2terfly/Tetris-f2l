@@ -131,8 +131,7 @@ async def handle_media(bot, message):
 
         # Reply with the link
         reply_text = (
-            "**ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n"
-            "**ᴄᴏɴᴛᴀɪɴs** - 1 **ғɪʟᴇ**\n\n"
+            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n\n
             "long press buttons to copy the link and share"
         )
         keyboard = InlineKeyboardMarkup([
@@ -154,22 +153,22 @@ async def gen_link_batch(bot, message):
     
     # Check if the user is in the approved users list
     if user_id not in P_USERS:
-        return await message.reply("**ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss \n\nɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴛᴏ  ᴜsᴇ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ᴛᴏ  ɢᴇɴᴇʀᴀᴛᴇ  ʟɪɴᴋs  ғᴏʀ  ᴍᴜʟᴛɪᴘʟᴇ  ғɪʟᴇs  ᴅɪʀᴇᴄᴛ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ  ᴀᴛ  ᴏɴᴄᴇ**")
+        return await message.reply("**❌ ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n /batch  command  use  for  generating  download / stream  link  for  multiple  files  direct  from  your  channel  at  once")
     
     username = (await bot.get_me()).username
     if " " not in message.text:
-        return await message.reply("Use correct format.\nExample /batch https://t.me/vj_botz/10 https://t.me/vj_botz/20.")
+        return await message.reply("ɪɴᴠᴀʟɪᴅ/ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
     
     links = message.text.strip().split(" ")
     if len(links) != 3:
-        return await message.reply("Use correct format.\nExample /batch https://t.me/vj_botz/10 https://t.me/vj_botz/20.")
+        return await message.reply("ɪɴᴠᴀʟɪᴅ/ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
     
     cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     
     match = regex.match(first)
     if not match:
-        return await message.reply('Invalid link')
+        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ**')
     
     f_chat_id = match.group(4)
     f_msg_id = int(match.group(5))
@@ -178,7 +177,7 @@ async def gen_link_batch(bot, message):
     
     match = regex.match(last)
     if not match:
-        return await message.reply('Invalid link')
+        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ**')
     
     l_chat_id = match.group(4)
     l_msg_id = int(match.group(5))
@@ -186,18 +185,18 @@ async def gen_link_batch(bot, message):
         l_chat_id = int(("-100" + l_chat_id))
     
     if f_chat_id != l_chat_id:
-        return await message.reply("Chat ids not matched.")
+        return await message.reply("ᴄʜᴀɴɴᴇʟ  ɪᴅ  ɴᴏᴛ  ᴍᴀᴛᴄʜᴇᴅ")
     
     try:
         chat_id = (await bot.get_chat(f_chat_id)).id
     except ChannelInvalid:
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
+        return await message.reply('ᴍᴀᴋᴇ  ᴍᴇ  ᴀᴅᴍɪɴ  ɪɴ  ᴛʜᴀᴛ  ᴄʜᴀɴɴᴇʟ/ɢʀᴏᴜᴘ')
     except (UsernameInvalid, UsernameNotModified):
-        return await message.reply('Invalid Link specified.')
+        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ɪɴᴠᴀʟɪᴅ  ʟɪɴᴋs  sᴘᴇᴄɪғɪᴇᴅ**')
     except Exception as e:
-        return await message.reply(f'Errors - {e}')
+        return await message.reply(f'ᴇʀʀᴏʀ - {e}')
     
-    sts = await message.reply("**ɢᴇɴᴇʀᴀᴛɪɴɢ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ᴍᴇssᴀɢᴇ**.\n**ᴛʜɪs ᴍᴀʏ ᴛᴀᴋᴇ ᴛɪᴍᴇ ᴅᴇᴘᴇɴᴅɪɴɢ ᴜᴘᴏɴ ɴᴜᴍʙᴇʀ ᴏғ ᴍᴇssᴀɢᴇs**")
+    sts = await message.reply("**ɪɴᴅᴇxɪɴɢ  ғɪʟᴇ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ.... ᴘʟᴇᴀsᴇ  ᴡᴀɪᴛ** \n\nwaiting  time  depends  on  number  of  files  for  indexing")
 
     FRMT = "**ɢᴇɴᴇʀᴀᴛɪɴɢ ʟɪɴᴋ...**\n**ᴛᴏᴛᴀʟ ᴍᴇssᴀɢᴇs:** {total}\n**ᴅᴏɴᴇ:** {current}\n**ʀᴇᴍᴀɪɴɪɴɢ:** {rem}\n**sᴛᴀᴛᴜs:** {sts}"
 
@@ -250,7 +249,7 @@ async def gen_link_batch(bot, message):
     
     if user["base_site"] and user["shortener_api"] != None:
         short_link = await get_short_link(user, share_link)
-        await sts.edit(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\nContains `{og_msg}` files.\n\n🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</b>")
+        await sts.edit(f"<b>⭕ ғɪʟᴇs  sᴛᴏʀᴇᴅ  ʜᴇʀᴇ  ɪs  ʏᴏᴜʀ  ʟɪɴᴋ:\n\n🖇️ sʜᴏʀᴛᴇɴ  ʟɪɴᴋ :- {short_link}</b>")
     else:
-        await sts.edit(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\nContains `{og_msg}` files.\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
+        await sts.edit(f"<b>⭕ ғɪʟᴇs  sᴛᴏʀᴇᴅ  ʜᴇʀᴇ  ɪs  ʏᴏᴜʀ  ʟɪɴᴋ:\n\n🔗 ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ :- {share_link}</b>")
         
