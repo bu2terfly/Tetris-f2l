@@ -485,36 +485,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "payment":
-    # Step 1: Display the quote for 8 seconds
-        await query.message.edit_text(
-            text="**ᴅᴏɴ'ᴛ  ʀᴜɴ  ғᴏʀ  ғʀᴇᴇ  ᴘʀᴏᴅᴜᴄᴛ,  ʀᴇᴍᴇᴍʙᴇʀ  ɪғ  ᴀ  ᴘʀᴏᴅᴜᴄᴛ  ɪs  ғʀᴇᴇ  ᴛʜᴇɴ  ʏᴏᴜ  ᴀʀᴇ  ᴛʜᴇ  ᴘʀᴏᴅᴜᴄᴛ** \n\npayment  interface  loading  shortly...."
-        )
-        await asyncio.sleep(8)
-
-    # Step 2: Create the inline buttons for the main payment page
-        buttons = [[
-            InlineKeyboardButton('ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ☑️', callback_data='paid')
-        ], [
-            InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='clone'),
-            InlineKeyboardButton('ᴅᴇᴍᴏ🤖', url='https://t.me/demo01234_bot')
-        ]]
-    
-    # Step 3: Send the QR code image
-        qr_message = await client.send_photo(
-            chat_id=query.message.chat.id,
-            photo="https://telegra.ph/file/4a0a3ac73658ff4c68dff.jpg",
-            caption="**UPI- pay2jyotimay@fam**"
-        )
-    
-    # Step 4: Edit the main page with the product details and inline buttons
-        await query.message.edit_text(
-            text="""**📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ  ᴄʟᴏɴᴇᴅ  ғɪʟᴇ  sʜᴀʀᴇ  ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ -  1️⃣ ʏᴇᴀʀ \n🎟️ᴀᴍᴏᴜɴᴛ  ᴘᴀʏᴀʙʟᴇ -  1️⃣4️⃣9️⃣₹ \n\n💸ᴘᴀʏ**  149₹  **ʙʏ  sᴄᴀɴɴɪɴɢ  ʙᴇʟᴏᴡ  ǫʀ  ᴀɴᴅ  ᴀғᴛᴇʀ  ᴘᴀʏᴍᴇɴᴛ  ᴄʟɪᴄᴋ  ᴏɴ  ᴀᴍᴏᴜɴᴛ  ᴘᴀɪᴅ \n\nɴᴏᴛᴇ -**  After  payment  you  will  get  an  option  for  adding  bot  tokens.""",
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-
-    # Step 5: Wait for 5 minutes, then delete the QR code image
-        await asyncio.sleep(300)
-        await qr_message.delete()
+        new_image_path = "https://envs.sh/S5T.jpg"
+        await query.message.edit_media(
+            media=InputMediaPhoto(new_image_path, caption=script.HELP_TXT),
+            reply_markup=InlineKeyboardMarkup([[
+             InlineKeyboardButton("ᴀᴍᴏᴜɴᴛ ᴘᴀɪᴅ✅", callback_data = "final")]])) 
     
     
     elif query.data == "paid":
@@ -547,28 +522,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [InlineKeyboardButton("🛸ᴀᴅᴍɪɴ", url="https://t.me/tetris_admino_bot")]
             ])
         )
-
-@client.on_message(filters.private & filters.text & filters.user(user_id))
-async def handle_user_response(client, message):
-        # Extract user response
-        user_info = message.text.strip()
-
-        # Sending user information to the admin log channel
-        await client.send_message(LOG_CHANNEL, text=user_info)
-
-        # Step 3: Delete the user's message
-        await message.delete()
-
-        # Step 4: Respond to the user to confirm receipt of their information
-        await client.send_message(
-            user_id,
-            text=(
-                "**ʏᴏᴜʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴀᴅᴍɪɴ.**\n"
-                "Please wait for confirmation."
-            ),
-            disable_web_page_preview=True
-        )
-        
 
 
 
