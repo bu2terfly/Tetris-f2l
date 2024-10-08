@@ -255,7 +255,6 @@ async def gen_link_batch(bot, message):
     post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️Generated for filestore.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    user_id = message.from_user.id
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
         share_link = f"{WEBSITE_URL}?Tech_VJ=BATCH-{file_id}"
