@@ -154,6 +154,11 @@ async def handle_media(bot, message):
 
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
+    user_id = message.from_user.id
+
+    if user_id not in P_USERS:
+        return await m.reply("<b>You are not authorized to use this command.</b>")
+    
     username = (await bot.get_me()).username
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample /batch https://t.me/vj_botz/10 https://t.me/vj_botz/20.")
