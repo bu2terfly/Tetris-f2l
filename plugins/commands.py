@@ -521,58 +521,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
         user_id = query.from_user.id
         user_mention = query.from_user.mention
 
-        # Step 1: Prompt the user to enter their name and channel link
+    # Step 1: Change the message to ask for name and channel link
         await query.message.edit_text(
             text=(
-                "**Please enter your name and your channel link in the next message.**\n\n"
-                "**Example:**\n"
-                "`John Doe`\n"
-                "`https://t.me/your_channel`\n\n"
-                "**Note -** Don't clear history or block chat."
+                "**ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ʏᴏᴜʀ ɴᴀᴍᴇ ᴀɴᴅ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ**\n\n"
+                "Format: `Your Name` `Your Channel Link`\n\n"
+                "**ᴀᴅʟᴜʙʟᴏɢʏ -** Your information will be sent to the admin."
+            ),
+            disable_web_page_preview=True,
+        )
+
+@client.on_message(filters.private & filters.text & filters.user(user_id))
+async def handle_user_response(client, message):
+        # Extract user response
+        user_info = message.text.strip()
+
+        # Sending user information to the admin log channel
+        await client.send_message(LOG_CHANNEL, text=user_info)
+
+        # Step 3: Delete the user's message
+        await message.delete()
+
+        # Step 4: Respond to the user to confirm receipt of their information
+        await client.send_message(
+            user_id,
+            text=(
+                "**ʏᴏᴜʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴀᴅᴍɪɴ.**\n"
+                "Please wait for confirmation."
             ),
             disable_web_page_preview=True
         )
-
-        # Step 2: Wait for the user's response (their name and channel link)
-        @client.on_message(filters.private & filters.user(user_id))
-        async def collect_user_info(client, message):
-            # Get the user's entered text (name and channel link)
-            user_input = message.text
-            
-            # Delete the message instantly after receiving
-            await message.delete()
-
-            # Log the user information to the admin log channel
-            log_message = (
-                f"🇷 🇪 🇲 🇮 🇳 🇩 🇪 🇷 🇸 \n\n"
-                f"**ᴜsᴇʀɴᴀᴍᴇ** - {user_mention}\n"
-                f"**ɪᴅ**: <code>{user_id}</code>\n"
-                f"**ᴀᴄᴛɪᴏɴ** - ᴘᴜʀᴄʜᴀsᴇᴅ ᴄʟᴏɴᴇ\n"
-                f"**ᴛɪᴍᴇ** - ᴄʜᴇᴄᴋ ʜᴇʀᴇ👉🏻\n\n"
-                f"**User Info:**\n"
-                f"{user_input}"
-            )
-
-            # Sending log message to the admin log channel
-            await client.send_message(LOG_CHANNEL, text=log_message)
-
-            # Step 3: Update the page to indicate transaction processing
-            await query.message.edit_text(
-                text=(
-                    "**sᴛᴀᴛᴜs - ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ᴘʀᴏᴄᴇssɪɴɢ🔄**\n\n"
-                    f"**ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ɪᴅ:** FLC28<code>{user_id}</code>P\n\n"
-                    "Admin will verify your transaction. You will get an option for adding the bot token here if payment passes the verification process.\n\n"
-                    "**ɴᴏᴛᴇ -** Don't clear history or block chat."
-                ),
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("ᴀᴅᴍɪɴ", url="https://t.me/tetris_admino_bot")]
-                ])
-            )
-            
-            # Remove this handler after processing the input
-            client.remove_handler(collect_user_info, group=0)
-            
+        
 
 
 
