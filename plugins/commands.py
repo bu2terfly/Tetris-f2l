@@ -311,10 +311,8 @@ async def start(client, message):
                         print(f"Error deleting the message: {e}")
 
                     return
-
-# Catch any errors outside of the try block
-            except Exception as e:
-               return await message.reply('<i>ɪ ғᴏᴜɴᴅ ɴᴏᴛʜɪɴɢ... ᴀʀᴇ ʏᴏᴜ sᴜʀᴇ</i>**')
+        except Exception as e:
+            return await message.reply('<i>ɪ ғᴏᴜɴᴅ ɴᴏᴛʜɪɴɢ... ᴀʀᴇ ʏᴏᴜ sᴜʀᴇ</i>**')
 
     
     files = files_[0]
