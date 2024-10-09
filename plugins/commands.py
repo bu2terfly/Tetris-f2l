@@ -301,9 +301,9 @@ async def start(client, message):
                 await asyncio.sleep(20)
                 try:
                     await msg.delete()
-            return
-        except Exception as e:
-            return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
+                return
+            except Exception as e:
+                return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
 
 
     
