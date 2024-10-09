@@ -299,10 +299,10 @@ async def start(client, message):
                 await asyncio.sleep(AUTO_DELETE_TIME)
                 try:
                     await msg.delete()
-            return
-        except:
-            pass
-        return await message.reply('No such file exist.')
+                    return
+                    except:
+                        pass
+                        return await message.reply('No such file exist.')
 
 
     
