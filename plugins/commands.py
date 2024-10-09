@@ -239,16 +239,16 @@ async def start(client, message):
         
         k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
         
-        await asyncio.sleep(120)
+        await asyncio.sleep(50)
         for x in filesarr:
            try:
                await x.delete()  # Delete file
            except Exception as e:
                logger.warning(e)
-               try:
-                   await k.delete()  # Delete the delete notice message
-               except Exception as e:
-                   logger.warning(e)
+           try:
+               await k.delete()  # Delete the delete notice message
+           except Exception as e:
+               logger.warning(e)
     
 
 
