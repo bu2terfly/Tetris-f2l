@@ -131,7 +131,7 @@ async def handle_media(bot, message):
 
         # Reply with the link
         reply_text = (
-            "**⭕ ғɪʟᴇ sᴛᴏʀᴇᴅ ғᴏʀ ʀᴇᴛʀɪᴇᴠɪɴɢ, ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ**\n\n"
+            "**⭕ ғɪʟᴇ  sᴛᴏʀᴇᴅ  ғᴏʀ  ʀᴇᴛʀɪᴇᴠɪɴɢ,  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**\n\n"
             "long press buttons to copy the link and share"
         )
         keyboard = InlineKeyboardMarkup([
@@ -157,18 +157,18 @@ async def gen_link_batch(bot, message):
     
     username = (await bot.get_me()).username
     if " " not in message.text:
-        return await message.reply("ɪɴᴠᴀʟɪᴅ/ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
+        return await message.reply("**ɪɴᴠᴀʟɪᴅ / ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
     
     links = message.text.strip().split(" ")
     if len(links) != 3:
-        return await message.reply("ɪɴᴠᴀʟɪᴅ/ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
+        return await message.reply("**ɪɴᴠᴀʟɪᴅ / ᴡʀᴏɴɢ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** \n /batch [channel post link1] [channel post link2] \n\n**ᴇx** - /batch https://t.me/demo/123 https://t.me/demo/456")
     
     cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     
     match = regex.match(first)
     if not match:
-        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ**')
+        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ....**')
     
     f_chat_id = match.group(4)
     f_msg_id = int(match.group(5))
@@ -177,7 +177,7 @@ async def gen_link_batch(bot, message):
     
     match = regex.match(last)
     if not match:
-        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ**')
+        return await message.reply('**ʟᴏᴏᴋs  ʟɪᴋᴇ  ʟɪɴᴋs  ᴀʀᴇ  ɪɴᴠᴀʟɪᴅ....**')
     
     l_chat_id = match.group(4)
     l_msg_id = int(match.group(5))
@@ -185,7 +185,7 @@ async def gen_link_batch(bot, message):
         l_chat_id = int(("-100" + l_chat_id))
     
     if f_chat_id != l_chat_id:
-        return await message.reply("ᴄʜᴀɴɴᴇʟ  ɪᴅ  ɴᴏᴛ  ᴍᴀᴛᴄʜᴇᴅ")
+        return await message.reply("ᴄʜᴀɴɴᴇʟ  ɪᴅ  ɴᴏᴛ  ᴍᴀᴛᴄʜᴇᴅ....")
     
     try:
         chat_id = (await bot.get_chat(f_chat_id)).id
