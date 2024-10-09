@@ -298,17 +298,12 @@ async def start(client, message):
                 
             if AUTO_DELETE_MODE == True:
                 k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: files  are  deleted  after  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
-                await asyncio.sleep(AUTO_DELETE_TIME)
+                await asyncio.sleep(20)
                 try:
                     await msg.delete()
-                except:
-                    pass
-                await g.delete()
-                await k.edit_text("<i>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</i>")
             return
-        except:
-            pass
-        return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
+        except Exception as e:
+            return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
 
 
     
