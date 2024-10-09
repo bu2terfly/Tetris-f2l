@@ -299,11 +299,14 @@ async def start(client, message):
                 await asyncio.sleep(AUTO_DELETE_TIME)
                 try:
                     await msg.delete()
-                    return
-                    except:
-                        pass
-                        return await message.reply('No such file exist.')
-
+                except:
+                    pass
+                await g.delete()
+                await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
+            return
+        except:
+            pass
+        return await message.reply('🧐')
 
     
     files = files_[0]
