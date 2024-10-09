@@ -245,10 +245,10 @@ async def start(client, message):
                await x.delete()  # Delete file
            except Exception as e:
                logger.warning(e)
-       try:
-           await k.delete()  # Delete the delete notice message
-       except Exception as e:
-           logger.warning(e)
+               try:
+                   await k.delete()  # Delete the delete notice message
+               except Exception as e:
+                   logger.warning(e)
     
 
 
