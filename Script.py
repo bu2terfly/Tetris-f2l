@@ -30,7 +30,7 @@ class script(object):
 
 **ᴄᴜʀʀᴇɴᴛ  sʜᴏʀᴛɴᴇʀ  ᴅᴏᴍᴀɪɴ : {base_site}
 
-ᴄᴜʀʀᴇɴᴛ sʜᴏʀᴛᴇɴᴇʀ ᴀᴘɪ: `{shortener_api}`**
+ᴄᴜʀʀᴇɴᴛ  ᴀᴘɪ: `{shortener_api}`**
 
 To  remove  api  send  this 👉🏻 `/api None`"""
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -75,16 +75,16 @@ donate  25$  or  more  to  unlock  premium  command"""
 
 ᴏᴜʀ  ᴛᴏᴘ  ᴅᴏɴᴀᴛᴇʀs  &   ᴛʜᴇɪʀ  ᴄʜᴀɴɴᴇʟs**
 
-<blockquote expandable>1️⃣ subhas dixit   👉🏻  @all_rounders               100₹
-2️⃣ Deaxtrom  👉🏻  @purohits_bots                  100₹
-3️⃣ SurXpratim 👉🏻 @babana                             70₹
-4️⃣ Bordzola  👉🏻 @movies_time                       43₹
-3️⃣ SurXpratim 👉🏻 @babana                             70₹
-4️⃣ Bordzola  👉🏻 @movies_time                       43₹
-3️⃣ SurXpratim 👉🏻 @babana                             70₹
-4️⃣ Bordzola  👉🏻 @movies_time                       43₹
-3️⃣ SurXpratim 👉🏻 @babana                             70₹
-5️⃣ Kanak gwalior  👉🏻 @creates_enemy           35₹</blockquote>
+<blockquote expandable>1️⃣ Admin   👉🏻  @tetris_bots               100₹
+2️⃣ none  👉🏻  @none                  00₹
+3️⃣ none 👉🏻 @none                             0₹
+4️⃣ none  👉🏻 @none                       0₹
+5️⃣ none 👉🏻 @none                             0₹
+6️⃣ none 👉🏻 @none                        0₹
+7️⃣ none 👉🏻 @none                             0₹
+8️⃣ none  👉🏻 @none                       0₹
+9️⃣ none 👉🏻 @none                             0₹
+🔟 none  👉🏻 @none           0₹</blockquote>
 ﻿
 **ᴅᴏɴᴀᴛᴇ**  ₹25  ᴏʀ  ᴀʙᴏᴠᴇ  ᴀɴᴅ  ɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ  ᴀɴᴅ  ᴀ  sᴜʀᴘʀɪsᴇ  ɢɪғᴛ**"""
 
@@ -94,13 +94,13 @@ donate  25$  or  more  to  unlock  premium  command"""
 
     HELP_TXT = """**ᴊᴜsᴛ  sᴇɴᴅ  ғɪʟᴇ  ɪɴ  ʙᴏᴛ,   ʙᴏᴛ  ᴡɪʟʟ  sᴛᴏʀᴇ  ᴀɴᴅ  ɢᴇɴᴇʀᴀᴛᴇ   ᴅᴏᴡɴʟᴏᴀᴅ / sᴛʀᴇᴀᴍ  ʟɪɴᴋ 
 
-ᴄᴏᴍᴍᴀɴᴅs :**
+ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅs :**
 
-**/batch - for  generate  link  for  multiple  files  from  channel  at  once ,  send  this  cmnd  for  tutorial
+●  **/batch - for  generate  link  for  multiple  files  from  channel  at  once ,  send  this  cmnd  for  tutorial
 
-/shortner - for  set  your  own  shortner , send  this  cmnd  for  tutorial
+●  /shortner - for  set  your  own  shortner , send  this  cmnd  for  tutorial
 
-/api - for  adding  your  shortner  api , send  this  cmnd  for  tutorial**
+●  /api - for  adding  your  shortner  api , send  this  cmnd  for  tutorial**
 
 **ᴀɴʏ  ᴏᴛʜᴇʀs  ʜᴇʟᴘ  ᴄᴏɴᴛᴀᴄᴛ  ᴀᴅᴍɪɴ**"""
 
