@@ -247,8 +247,6 @@ async def start(client, message):
                logger.warning(e)
     
 
-
-
     files_ = await get_file_details(file_id)           
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
@@ -296,23 +294,16 @@ async def start(client, message):
                     )
                 )
                 
-                if AUTO_DELETE_MODE == True:
-                    k = await client.send_message(
-                        chat_id=message.from_user.id, 
-                        text="❗️**ɴᴏᴛᴇ**: files are deleted after 10 minutes due to copyright issue. Use the link to retrieve it anytime."
-                    )
-                    await asyncio.sleep(20)  # Adjust the sleep time as needed
+            if AUTO_DELETE_MODE == True:
+                k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: files  are  deleted  after  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
+                await asyncio.sleep(AUTO_DELETE_TIME)
+                try:
+                    await msg.delete()
+            return
+        except:
+            pass
+        return await message.reply('No such file exist.')
 
-                    try:
-        # Try to delete the file after the set time
-                        await msg.delete()
-                        await k.edit_text("<i>ғɪʟᴇ ᴅᴇʟᴇᴛᴇᴅ. Use retrieve link to get it again.</i>")
-                    except Exception as e:
-                        print(f"Error deleting the message: {e}")
-
-                    return
-        except Exception as e:
-            return await message.reply('<i>ɪ ғᴏᴜɴᴅ ɴᴏᴛʜɪɴɢ... ᴀʀᴇ ʏᴏᴜ sᴜʀᴇ</i>**')
 
     
     files = files_[0]
