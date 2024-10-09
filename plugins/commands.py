@@ -236,16 +236,20 @@ async def start(client, message):
                 continue
             await asyncio.sleep(1) 
         await sts.delete()
-        if AUTO_DELETE_MODE == True:
-            k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
-            await asyncio.sleep(AUTO_DELETE_TIME)
-            for x in filesarr:
-                try:
-                    await x.delete()
-                except:
-                    pass
-            await k.edit_text("**ғɪʟᴇs  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ**")
-        return
+        
+        k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
+        
+        await asyncio.sleep(120)
+        for x in filesarr:
+           try:
+               await x.delete()  # Delete file
+           except Exception as e:
+               logger.warning(e)
+       try:
+           await k.delete()  # Delete the delete notice message
+       except Exception as e:
+           logger.warning(e)
+    
 
 
 
