@@ -78,7 +78,7 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴜsᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ,  ʙᴜᴛ  ᴜ ʀ  ɴᴏᴛ \n\n ᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
+            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴜsᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ,  ʙᴜᴛ  ᴜ ʀ  ɴᴏᴛ \n\nᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
             reply_markup=reply_markup
         )
         return
@@ -304,11 +304,11 @@ async def start(client, message):
                 except:
                     pass
                 await g.delete()
-                await k.edit_text("<b>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</b>")
+                await k.edit_text("<i>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</i>")
             return
         except:
             pass
-        return await message.reply('**ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ**')
+        return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
 
 
     
@@ -361,7 +361,7 @@ async def start(client, message):
             await x.delete()
         except:
             pass
-        await k.edit_text("<b>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</b>")       
+        await k.edit_text("<i>ғɪʟᴇ  ᴅᴇʟᴇᴛᴇᴅ  ᴜsᴇ  ʀᴇᴛʀɪᴇᴠᴇ  ʟɪɴᴋ  ᴛᴏ  ɢᴇᴛ  ᴀɢᴀɪɴ</i>")       
         
 
 @Client.on_message(filters.command('api') & filters.private)
@@ -385,11 +385,11 @@ async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
     
     if user_id not in P_USERS:
-        return await m.reply("**ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n /shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
+        return await m.reply("**❌ ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n/shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
             
     user = await get_user(user_id)
     cmd = m.command
-    text = f"ɪɴᴠᴀʟɪᴅ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs : \n\n**/shortner (shortnerdomain)\nᴇxᴍᴘʟᴇ** - `/shortner shrinkme.link `\n\nTo  remove  shortner  send  this👉🏻 `/shortner none`"
+    text = f"**ɪɴᴠᴀʟɪᴅ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** : \n\n**/shortner (shortnerdomain)\nᴇxᴍᴘʟᴇ** - `/shortner shrinkme.link `\n\nTo  remove  shortner  send  this👉🏻 `/shortner none`"
     
     # If no argument is provided, show instructions
     if len(cmd) == 1:
@@ -516,9 +516,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         # Step 2: Respond to the user with transaction details
         await query.message.edit_text(
             text=(
-                "**🥳ᴅᴇᴇᴘʟʏ  ɢʀᴀᴛᴇғᴜʟʟ  ᴛᴏ  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ💸 \n\nsᴛᴀᴛᴜs - ᴛʀᴀɴsᴀᴄᴛɪᴏɴ  ᴘʀᴏᴄᴇssɪɴɢ🔄**\n"
-                f"**ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ɪᴅ:** FLC28<code>{user_id}</code>P\n\n"
-                "Admin  will  verify  your  transaction  . and  approve  premium  command  for  you  shortly .  Just  wait  some  minutes\n\n"
+                "**🥳ᴅᴇᴇᴘʟʏ  ɢʀᴀᴛᴇғᴜʟʟ  ᴛᴏ  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ💸 \nᴡᴀɪᴛ  ᴀᴅᴍɪɴ  ᴡɪʟʟ  ᴠᴇʀɪғʏ  ʏᴏᴜ  sʜᴏʀᴛʟʏ\n\nsᴛᴀᴛᴜs - ᴛʀᴀɴsᴀᴄᴛɪᴏɴ  ᴘʀᴏᴄᴇssɪɴɢ🔄**\n"
+                f"**ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ɪᴅ:** `FLC28<code>{user_id}</code>P`\n\n"
                 "**ɴᴏᴛᴇ -** send you channel link or any other content to admin for showcasing. also mention your transaction ID "
             ),
             disable_web_page_preview=True,
@@ -565,7 +564,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("✦ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=download),  # we download Link
+                InlineKeyboardButton("⟡ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=download),  # we download Link
                 InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=stream)
             ],[
                 InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
