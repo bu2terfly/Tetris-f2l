@@ -23,7 +23,7 @@ API_ID = int(environ.get("API_ID", "23223511"))
 API_HASH = environ.get("API_HASH", "c2207a11155ad050097e981fdd5fd0b1")
 BOT_TOKEN = environ.get("BOT_TOKEN", "")
 
-PICS = (environ.get('PICS', 'https://envs.sh/IZJ.jpg')).split() # Bot Start Picture
+PICS = (environ.get('PICS', 'https://envs.sh/INZ.jpg')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 BOT_USERNAME = environ.get("BOT_USERNAME", "File_share_stream_bot") # without @
 PORT = environ.get("PORT", "8080")
@@ -43,8 +43,8 @@ DB_NAME = environ.get("DB_NAME", "tetz")
 AUTO_DELETE_MODE = bool(environ.get('AUTO_DELETE_MODE', True)) # Set True or False
 
 # If Auto Delete Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
-AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
-AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "1800")) # Time in Seconds
+AUTO_DELETE = int(environ.get("AUTO_DELETE", "10")) # Time in Minutes
+AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "600")) # Time in Seconds
 
 # Channel Information
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", ""))
