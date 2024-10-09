@@ -302,8 +302,8 @@ async def start(client, message):
                 try:
                     await msg.delete()
                 return
-            except Exception as e:
-                return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
+        except Exception as e:
+            return await message.reply('<i>ɪ  ғᴏᴜɴᴅ  ɴᴏᴛʜɪɴɢ... ᴀʀᴇ  ʏᴏᴜ  sᴜʀᴇ</i>**')
 
 
     
