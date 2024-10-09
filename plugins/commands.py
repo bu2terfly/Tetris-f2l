@@ -204,7 +204,7 @@ async def start(client, message):
                 if STREAM_MODE == True:
                     button = [[
                         InlineKeyboardButton("✦ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stream),  # we download Link
-                        InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=download)
+                        InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ✦', url=download)
                     ],[
                         InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
                     ]]
@@ -237,16 +237,12 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         
-        k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"**❗️ɴᴏᴛᴇ **:  files  are  deleted  after  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
         
-        await asyncio.sleep(50)
+        await asyncio.sleep(600)
         for x in filesarr:
            try:
                await x.delete()  # Delete file
-           except Exception as e:
-               logger.warning(e)
-           try:
-               await k.delete()  # Delete the delete notice message
            except Exception as e:
                logger.warning(e)
     
@@ -301,7 +297,7 @@ async def start(client, message):
                 )
                 
             if AUTO_DELETE_MODE == True:
-                k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
+                k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: files  are  deleted  after  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
                 await asyncio.sleep(AUTO_DELETE_TIME)
                 try:
                     await msg.delete()
@@ -359,7 +355,7 @@ async def start(client, message):
             )
         )
     if AUTO_DELETE_MODE == True:
-        k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: this  file  will  be  deleted  in  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"❗️**ɴᴏᴛᴇ**: file  are  deleted  after  10  minutes  due  to  copyright  issue.  use  the  link  for  retrieve  it  anytime")
         await asyncio.sleep(AUTO_DELETE_TIME)
         try:
             await x.delete()
