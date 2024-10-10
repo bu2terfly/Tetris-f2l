@@ -35,7 +35,7 @@ async def allowed(_, __, message):
 
 def upload_image_requests(image_path):
     """Upload image to the server."""
-    upload_url = "https://envs.sh"  # Make sure this URL is correct and functional
+    upload_url = ""  # Make sure this URL is correct and functional
     try:
         with open(image_path, 'rb') as file:
             files = {'file': file}
@@ -50,7 +50,7 @@ def upload_image_requests(image_path):
                 return response.text.strip()  # Ensure this returns the actual URL
             else:
                 raise Exception(f"Upload failed with status code {response.status_code}")
-    except requests.exceptions.Timeout:
+    except requests.exceptions.Timeout
         logger.error("Upload timed out.")
         return None
     except Exception as e:
@@ -81,7 +81,7 @@ async def handle_photo(bot, message):
         await uploading_message.edit_text(
             text=f"**🌄ᴘʜᴏᴛᴏ  ʜᴏsᴛᴇᴅ  ᴏɴ  ᴇɴᴠs.sʜ  ʟɪɴᴋs  ʜᴇʀᴇ:**\n\n"
                  f"ᴛᴀᴘ  ʟɪɴᴋ  ᴛᴏ  ᴄᴏᴘʏ: <code>{photo_url}</code>",
-            disable_web_page_preview=True,
+            disable_web_page_preview=True
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton(text="ᴏᴘᴇɴ  ʟɪɴᴋ", url=photo_url),
                 InlineKeyboardButton(text="sʜᴀʀᴇ  ʟɪɴᴋ", url=f"https://telegram.me/share/url?url={photo_url}")
@@ -152,8 +152,6 @@ async def gen_link_batch(bot, message):
     user_id = message.from_user.id
     
     # Check if the user is in the approved users list
-    if user_id not in P_USERS:
-        return await message.reply("**🔐ғɪʀsᴛ  ᴜɴʟᴏᴄᴋ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ʙʏ  ᴅᴏɴᴀᴛɪɴɢ** \n\n /batch  command  use  for  generating  download / stream  link  for  multiple  files  direct  from  your  channel  at  once")
     
     username = (await bot.get_me()).username
     if " " not in message.text:
@@ -218,9 +216,9 @@ async def gen_link_batch(bot, message):
                 caption = caption.html
             if file:
                 file = {
-                    "file_id": file.file_id,
+                    "file_id": file.file_id
                     "caption": caption,
-                    "title": getattr(file, "file_name", ""),
+                    "title": getattr(file, "file_name", "")
                     "size": file.file_size,
                     "protect": cmd.lower().strip() == "/pbatch",
                 }
@@ -243,9 +241,9 @@ async def gen_link_batch(bot, message):
     
     user = await get_user(user_id)
     if WEBSITE_URL_MODE:
-        share_link = f"{WEBSITE_URL}?Tech_VJ=BATCH-{file_id}"
+        share_link = f"{WEBSITE_URL}?=BATCH-{file_id}"
     else:
-        share_link = f"https://t.me/{username}?start=BATCH-{file_id}"
+        share_link = f"https://t.me/{username}?=BATCH-{file_id}"
     
     if user["base_site"] and user["shortener_api"] != None:
         short_link = await get_short_link(user, share_link)
