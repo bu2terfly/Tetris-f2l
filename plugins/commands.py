@@ -428,15 +428,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "rewards":
-        buttons = [[
-            InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start')
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
         await query.message.edit_text(
-            text=script.ABOUT_TXT.format(me2),
-            reply_markup=reply_markup,
+            text=script.R_TXT.format(me2),
             disable_web_page_preview=False
         )
 
