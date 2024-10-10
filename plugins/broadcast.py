@@ -101,7 +101,7 @@ async def approve_callback(client, callback_query):
     ]]))
     
 @Client.on_callback_query(filters.regex(r"donate_\d+") & filters.user(ADMINS))
-async def approve_callback(client, callback_query):
+async def donation_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴅᴏɴᴀᴛɪᴏɴ  ᴀᴘᴘʀᴏᴠᴇᴅ  ᴛᴏ  ᴛʜᴀᴛ  ᴜsᴇʀs**")
     await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ ☑️  ᴛʜᴀɴᴋ   ʏᴏᴜ  ғᴏʀ  ᴅᴏɴᴀᴛɪᴏɴ🎉  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʀᴇᴀʟʟʏ  ʜᴇʟᴘ  ᴜs  ᴀ  ʟᴏᴛ** \n🤞🏼Hope  we  get  your  donation  again 😀\n\n**ᴀ  ʀᴇᴡᴀʀᴅ🎁  ғᴏʀ  ʏᴏᴜ  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**.[🎊](https://envs.sh/nt3.mp4) \nbutton not open ? you are ineligible for rewards", reply_markup=InlineKeyboardMarkup([[
