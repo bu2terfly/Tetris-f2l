@@ -382,7 +382,7 @@ async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
     
     if user_id not in P_USERS:
-        return await m.reply("**❌ ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n/shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
+        return await m.reply("**🔐ғɪʀsᴛ  ᴜɴʟᴏᴄᴋ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ʙʏ  ᴅᴏɴᴀᴛɪɴɢ** \n\n/shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
             
     user = await get_user(user_id)
     cmd = m.command
