@@ -153,7 +153,7 @@ async def gen_link_batch(bot, message):
     
     # Check if the user is in the approved users list
     if user_id not in P_USERS:
-        return await message.reply("**❌ ʏᴏᴜ  ᴅᴏɴᴛ  ʜᴀᴠᴇ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴀᴄᴄᴇss** \n\n /batch  command  use  for  generating  download / stream  link  for  multiple  files  direct  from  your  channel  at  once")
+        return await message.reply("**🔐ғɪʀsᴛ  ᴜɴʟᴏᴄᴋ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ʙʏ  ᴅᴏɴᴀᴛɪɴɢ** \n\n /batch  command  use  for  generating  download / stream  link  for  multiple  files  direct  from  your  channel  at  once")
     
     username = (await bot.get_me()).username
     if " " not in message.text:
