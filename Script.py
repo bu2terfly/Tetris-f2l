@@ -43,7 +43,14 @@ To  remove  api  send  this 👉🏻 `/api None`"""
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+    R_TXT = """[🎁](https://envs.sh/nig.mp4)**ʏᴏᴜʀ  ʀᴇᴡᴀʀᴅs -
 
+ᴘʀᴇᴍɪᴜᴍ🥳  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ🎉  ғᴏʀ  ʏᴏᴜ** 
+Now  you  can  use  /batch  &  /shortner  command
+
+**ᴠᴀʟɪᴅɪᴛʏ**  -  <tg-spoiler>Just  use  it  without  thinking</tg-spoiler>"""
+
+    
     ABOUT_TXT = """**⚠️ ᴡᴀʀɴɪɴɢ !  ᴄᴏɴᴛᴇɴᴛ  ʀᴇsᴛɪᴄᴛɪᴏɴ** 
 
 📌 Sending  of  pornographic  content  in  bot  will result  in  an  immediate  ban  and  being  reported.
