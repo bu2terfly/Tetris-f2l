@@ -37,32 +37,6 @@ def get_size(size):
         size /= 1024.0
     return "%.2f %s" % (size, units[i])
 
-async def force_sub_check(client, user_id):
-    try:
-        # Check if the user is a member of the update channel
-        user = await client.get_chat_member(FORCE_SUB_CHANNEL, user_id)
-        
-        # If the user is a member, administrator, or owner, return True
-        if user.status in [enums.ChatMemberStatus.MEMBER, enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
-            return True
-        
-        # Otherwise, the user is not a member
-        return False
-    
-    # Handle case where the user is not a participant
-    except UserNotParticipant:
-        return False
-    
-    # Handle permission or access-related issues
-    except (ChatAdminRequired, ChannelPrivate) as e:
-        logger.error(f"Bot lacks permission to check subscription or channel is private: {e}")
-        return False
-    
-    # Catch any other exceptions
-    except Exception as e:
-        logger.error(f"Unexpected error checking subscription status: {e}")
-        return False
-
 
 
 @Client.on_message(filters.command("start") & filters.incoming)
@@ -70,18 +44,7 @@ async def start(client, message):
     username = (await client.get_me()).username
 
     # Force sub check
-    is_subscribed = await force_sub_check(client, message.from_user.id)
     
-    if not is_subscribed:
-        buttons = [[
-            InlineKeyboardButton('🛸ᴜᴘᴅᴀᴛᴇ  ᴄʜᴀɴɴᴇʟ', url="https://t.me/Tetris_botz")
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text="**ᴛᴏ  ᴘʀᴇᴠᴇɴᴛ  ᴏᴠᴇʀʟᴏᴀᴅ  ᴏɴʟʏ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴜsᴇʀs  ᴄᴀɴ  ᴜsᴇ  ᴛʜɪs  ʙᴏᴛ,  ʙᴜᴛ  ᴜ ʀ  ɴᴏᴛ \n\nᴊᴏɪɴ  ᴏᴜʀ  ᴄʜᴀɴɴᴇʟ  ᴀɴᴅ  sᴇɴᴅ**  /start  **ᴀɢᴀɪɴ**",
-            reply_markup=reply_markup
-        )
-        return
 
 
     # Check if user exists in the database
@@ -187,12 +150,12 @@ async def start(client, message):
                     username =  message.from_user.mention 
 
                     log_msg = await client.send_cached_media(
-                        chat_id=LOG_CHANNEL,
+                        chat_id=LOG_CHANNEL
                         file_id=msg.get("file_id"),
                     )
                     fileName = {quote_plus(get_name(log_msg))}
-                    stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                    download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                    stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus((log_msg))}?hash={get_hash(log_msg)}"
+                    download = f"{URL}{str(log_msg.id)}/{quote_plus((log_msg))}?hash={get_hash(log_msg)}"
  
                     await log_msg.reply_text(
                         text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
@@ -214,7 +177,7 @@ async def start(client, message):
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
-                    caption=f_caption,
+                    caption=f_caption
                     protect_content=msg.get('protect', False),
                     reply_markup=reply_markup
                 )
@@ -335,7 +298,7 @@ async def start(client, message):
         return
     x = await client.send_cached_media(
     chat_id=message.from_user.id,
-    file_id=file_id,
+    file_id=file_id
     caption=f_caption,  # Caption for the file
     protect_content=True if pre == 'filep' else False
     )
@@ -381,9 +344,6 @@ async def shortener_api_handler(client, m: Message):
 async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
     
-    if user_id not in P_USERS:
-        return await m.reply("**🔐ғɪʀsᴛ  ᴜɴʟᴏᴄᴋ  ᴛʜɪs  ᴄᴏᴍᴍᴀɴᴅ  ʙʏ  ᴅᴏɴᴀᴛɪɴɢ** \n\n/shortner  command  use  for  adding  your  own  shortner  then  bot  will  convert  file  retrieve  link  to  shorten  link")
-            
     user = await get_user(user_id)
     cmd = m.command
     text = f"**ɪɴᴠᴀʟɪᴅ  ғᴏʀᴍᴀᴛ  sᴇɴᴅ  ʟɪᴋᴇ  ᴛʜɪs** : \n\n**/shortner (shortnerdomain)\nᴇxᴍᴘʟᴇ** - `/shortner shrinkme.link `\n\nTo  remove  shortner  send  this👉🏻 `/shortner none`"
@@ -513,7 +473,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )    
 
         # Sending log message to the admin log channel
-        await client.send_message(LOG_CHANNEL, text=log_message)
+        await client.send_message(LOG_CHANNEL text=log_message)
 
         # Step 2: Respond to the user with transaction details
         await query.message.edit_text(
@@ -543,8 +503,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 file_id=file_id,
             )
             fileName = {quote_plus(get_name(log_msg))}
-            stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-            download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}hash={get_hash(log_msg)}"
+            download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}hash={get_hash(log_msg)}"
 
             xo = await query.message.reply_text(f'⌨️')
             await asyncio.sleep(1)
@@ -566,13 +526,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("⟡ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stream),  # we download Link
-                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=download)
+                InlineKeyboardButton("⟡ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stram),  # we download Link
+                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=dounload)
             ],[
                 InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
             ]]
             reply_markup=InlineKeyboardMarkup(button)
-            await query.message.reply_text(
+            await query.message.edit_text(
                 text="**ʟɪɴᴋ  ɢᴇɴᴇʀᴀᴛᴇᴅ , ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ [🔽](https://telegra.ph/file/6b18b34bad2f27c96afe8.mp4) ʙᴜᴛᴛᴏɴs**\n\nlong  press  any  buttons  to  copy  links  and  share",
                 quote=True,
                 disable_web_page_preview=False,
