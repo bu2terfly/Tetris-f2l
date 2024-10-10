@@ -503,24 +503,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"**ɪᴅ**: <code>{user_id}</code>\n"
             f"**ᴀᴄᴛɪᴏɴ** - ᴅᴏɴᴀᴛᴇ\n"
             f"**ᴛɪᴍᴇ** - ᴄʜᴇᴄᴋ ʜᴇʀᴇ👉🏻"
-        )
-    
-    elif query.data == "rewards":
-        buttons = [[
-            InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start')
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
-        me2 = (await client.get_me()).mention
-        if user_id in P_USERS:
-            await callback_query.message.edit_text("**🎉 Congratulations! You have access to premium rewards! 🏆**\n\nYou can now enjoy all the benefits available.")
-        else:
-            await callback_query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
-            reply_markup=reply_markup,
-            disable_web_page_preview=False
-        )
-
-        
+        )    
 
         # Sending log message to the admin log channel
         await client.send_message(LOG_CHANNEL, text=log_message)
@@ -537,7 +520,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [InlineKeyboardButton("🛸ᴀᴅᴍɪɴ", url="https://t.me/tetris_admino_bot")]
             ])
         )
-
+   
+    elif query.data == "rewards":
+        buttons = [[
+            InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        me2 = (await client.get_me()).mention
+        if user_id in P_USERS:
+            await callback_query.message.edit_text("**🎉 Congratulations! You have access to premium rewards! 🏆**\n\nYou can now enjoy all the benefits available.")
+        else:
+            await callback_query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
+            reply_markup=reply_markup,
+            disable_web_page_preview=False
+        )
 
 
        
