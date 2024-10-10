@@ -534,7 +534,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await callback_query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
             reply_markup=reply_markup,
             disable_web_page_preview=False
-        )
+            )
 
 
        
