@@ -427,6 +427,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
             disable_web_page_preview=False
         )
 
+    elif query.data == "rewards":
+        buttons = [[
+            InlineKeyboardButton('◀️ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        me2 = (await client.get_me()).mention
+        await query.message.edit_text(
+            text=script.ABOUT_TXT.format(me2),
+            reply_markup=reply_markup,
+            disable_web_page_preview=False
+        )
+
 
     
     elif query.data == "start":
@@ -521,11 +534,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ])
         )
    
-    elif query.data == "rewards":
-        if user_id in P_USERS:
-            await query.message.edit_text("**🎉 Congratulations! You have access to premium rewards! 🏆**\n\nYou can now enjoy all the benefits available.")
-        else:
-            await query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
 
 
        
