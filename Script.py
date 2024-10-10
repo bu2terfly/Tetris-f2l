@@ -4,17 +4,17 @@
 
 
 class script(object):
-    START_TXT = """<i>ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ </i>🧩
+    START_TXT = """**ʜᴇʟʟᴏ🖐🏻  ᴜsᴇʀ  ɪᴛ  ɪs  ᴀ   ғɪʟᴇ  ᴛᴏ  ʟɪɴᴋ  ʙᴏᴛ  ᴡɪᴛʜ  sᴏᴍᴇ  ᴇxᴛʀᴀ  ғᴇᴀᴛᴜʀᴇs   ᴀɴᴅ  ғᴀsᴛ  ᴜɪ**🧩
 
 ➜  <i>sᴛᴏʀᴇ  ғɪʟᴇs , sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ</i>
 ➜  <i>ɢᴇɴᴇʀᴀᴛᴇ  ғᴀsᴛ  ᴅᴏᴡɴʟᴏᴀᴅ  ʟɪɴᴋ</i>
 ➜  <i>ᴀᴅᴅ  ʏᴏᴜʀ  ᴏᴡɴ  sʜᴏʀᴛɴᴇʀ  ᴀɴᴅ  ᴇᴀʀɴ</i> 
 ➜  <i>ʜᴏsᴛ  ɪᴍᴀɢᴇ  ɢɪᴠᴇs  ʟɪɴᴋ (telegraph)</i>
-➜  <i>ɢᴇɴᴇʀᴀᴛᴇ  ʟɪɴᴋ  ᴅɪʀᴇᴄᴛʟʏ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ  
+➜  <i>ɢᴇɴᴇʀᴀᴛᴇ  ʟɪɴᴋ  ᴅɪʀᴇᴄᴛʟʏ  ғʀᴏᴍ  ᴄʜᴀɴɴᴇʟ</i>  
 
-ᴊᴜsᴛ  sᴇɴᴅ  ᴀ  ғɪʟᴇ  ᴛᴏ  ᴍᴇ  ᴀɴᴅ  ʙᴏᴏᴍ</i>
+**ᴊᴜsᴛ  sᴇɴᴅ  ᴀ  ғɪʟᴇ  ᴛᴏ  ᴍᴇ  ᴀɴᴅ  ʙᴏᴏᴍ**
 
-✦ <i>[ᴀᴅᴅ  ᴛᴏ  ᴄʜᴀɴɴᴇʟ](https://t.me/File_share_stream_bot?startchannel=s&admin)</i>"""
+✦ **[ᴀᴅᴅ  ᴛᴏ  ᴄʜᴀɴɴᴇʟ](https://t.me/File_share_stream_bot?startchannel=s&admin)**"""
 
 
     
@@ -48,7 +48,7 @@ To  remove  api  send  this 👉🏻 `/api None`"""
 ᴘʀᴇᴍɪᴜᴍ🥳  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ🎉  ғᴏʀ  ʏᴏᴜ** 
 Now  you  can  use  /batch  &  /shortner  command
 
-**ᴠᴀʟɪᴅɪᴛʏ**  -  <tg-spoiler>Just  use  it  without  thinking</tg-spoiler>"""
+**ᴠᴀʟɪᴅɪᴛʏ**  -  ||Just  use  it  without  thinking||"""
 
     
     ABOUT_TXT = """**⚠️ ᴡᴀʀɴɪɴɢ !  ᴄᴏɴᴛᴇɴᴛ  ʀᴇsᴛɪᴄᴛɪᴏɴ** 
