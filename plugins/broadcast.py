@@ -96,7 +96,7 @@ async def approve_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ɢɪᴠᴇɴ  ᴛᴏ  ᴜsᴇʀs**")
     await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ ᴄʟᴏɴᴇᴅ ғɪʟᴇ  sʜᴀʀᴇ ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ - 1 ʏᴇᴀʀ ғʀᴏᴍ ᴛᴏᴅᴀʏ \n\n💡ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ғᴏʟʟᴏᴡ ɢɪᴠᴇɴ ɪɴsᴛʀᴜᴄᴛɪᴏɴs ᴛᴏ ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="reward")
+        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="rewards")
     ]]))
 
 @Client.on_callback_query(filters.regex(r"decline_\d+") & filters.user(ADMINS))
