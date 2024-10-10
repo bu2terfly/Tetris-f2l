@@ -84,7 +84,7 @@ async def sent_command(bot, message):
     inline_buttons = [
         [InlineKeyboardButton("ᴀᴘᴘʀᴏᴠᴇ  ᴘʀᴇᴍɪᴜᴍ💸", f"approve_{user_id}")], 
         [InlineKeyboardButton("ᴅᴇᴄʟɪɴᴇ  ᴅᴏɴᴀᴛɪᴏɴ❌", f"decline_{user_id}")],
-        [InlineKeyboardButton("ᴀᴘᴘʀᴏᴠᴇ  ᴅᴏɴᴀᴛɪᴏɴ💖", f"donate_{user_id}")]
+        [InlineKeyboardButton("ᴀᴘᴘʀᴏᴠᴇ  ᴅᴏɴᴀᴛɪᴏɴ💖", f"donate_{user_id}")],
         [InlineKeyboardButton("ʙᴀɴ  ᴡᴀʀɴɪɴɢ⚠️", f"warning_{user_id}")]
     ]
     reply_markup = InlineKeyboardMarkup(inline_buttons)
@@ -96,7 +96,7 @@ async def sent_command(bot, message):
 async def approve_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ɢɪᴠᴇɴ  ᴛᴏ  ᴜsᴇʀs**")
-    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ ᴄʟᴏɴᴇᴅ ғɪʟᴇ  sʜᴀʀᴇ ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ - 1 ʏᴇᴀʀ ғʀᴏᴍ ᴛᴏᴅᴀʏ \n\n💡ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ғᴏʟʟᴏᴡ ɢɪᴠᴇɴ ɪɴsᴛʀᴜᴄᴛɪᴏɴs ᴛᴏ ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
+    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ ☑️  ᴛʜᴀɴᴋ   ʏᴏᴜ  ғᴏʀ  ᴅᴏɴᴀᴛɪᴏɴ🎉  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʀᴇᴀʟʟʏ  ʜᴇʟᴘ  ᴜs  ᴀ  ʟᴏᴛ** \n🤞🏼Hope  we  get  your  donation  again 😀\n\n**ᴀ  ʀᴇᴡᴀʀᴅ🎁  ғᴏʀ  ʏᴏᴜ  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**.[🎊](https://envs.sh/nt3.mp4) \nbutton not open ? you are ineligible for rewards", reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="rewards")
     ]]))
     
@@ -104,7 +104,7 @@ async def approve_callback(client, callback_query):
 async def approve_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴅᴏɴᴀᴛɪᴏɴ  ᴀᴘᴘʀᴏᴠᴇᴅ  ᴛᴏ  ᴛʜᴀᴛ  ᴜsᴇʀs**")
-    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ ᴄʟᴏɴᴇᴅ ғɪʟᴇ  sʜᴀʀᴇ ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ - 1 ʏᴇᴀʀ ғʀᴏᴍ ᴛᴏᴅᴀʏ \n\n💡ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ғᴏʟʟᴏᴡ ɢɪᴠᴇɴ ɪɴsᴛʀᴜᴄᴛɪᴏɴs ᴛᴏ ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
+    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ ☑️  ᴛʜᴀɴᴋ   ʏᴏᴜ  ғᴏʀ  ᴅᴏɴᴀᴛɪᴏɴ🎉  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʀᴇᴀʟʟʏ  ʜᴇʟᴘ  ᴜs  ᴀ  ʟᴏᴛ** \n🤞🏼Hope  we  get  your  donation  again 😀\n\n**ᴀ  ʀᴇᴡᴀʀᴅ🎁  ғᴏʀ  ʏᴏᴜ  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**.[🎊](https://envs.sh/nt3.mp4) \nbutton not open ? you are ineligible for rewards", reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="reward")
     ]]))
 
