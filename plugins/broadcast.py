@@ -105,7 +105,7 @@ async def donation_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴅᴏɴᴀᴛɪᴏɴ  ᴀᴘᴘʀᴏᴠᴇᴅ  ᴛᴏ  ᴛʜᴀᴛ  ᴜsᴇʀs**")
     await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ ☑️  ᴛʜᴀɴᴋ   ʏᴏᴜ  ғᴏʀ  ᴅᴏɴᴀᴛɪᴏɴ🎉  ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʀᴇᴀʟʟʏ  ʜᴇʟᴘ  ᴜs  ᴀ  ʟᴏᴛ** \n🤞🏼Hope  we  get  your  donation  again 😀\n\n**ᴀ  ʀᴇᴡᴀʀᴅ🎁  ғᴏʀ  ʏᴏᴜ  ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ**.[🎊](https://envs.sh/nt3.mp4) \nbutton not open ? you are ineligible for rewards", reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="reward")
+        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="rewar")
     ]]))
 
 
@@ -119,7 +119,7 @@ async def decline_callback(client, callback_query):
 async def warning_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴡᴀʀɴɪɴɢ ɢɪᴠᴇɴ ᴛᴏ ᴛʜᴀᴛ ᴜsᴇʀ**")
-    await client.send_message(user_id, "**❗Warning - You are violating our terms by sending explicit content. You may be banned. Contact [admin](https://t.me/Tetris_admino_bot) for more info.**")
+    await client.send_message(user_id, "**⚠️ᴡᴀʀɴɪɴɢ -**  <i>ʏᴏᴜ  ᴀʀᴇ  ᴠɪᴏʟᴀᴛɪɴɢ  ᴏᴜʀ  ᴛᴇʀᴍs  ʙʏ  sᴇɴᴅɪɴɢ  ᴇxᴘʟɪᴄɪᴛ  ᴄᴏɴᴛᴇɴᴛ . ᴛʜɪs  ɪs  ʟᴀsᴛ  ᴡᴀʀɴɪɴɢ  ᴏᴛʜᴇʀᴡɪsᴇ  ᴡᴇ  ʜᴀᴠᴇ  ᴛᴏ  ʙᴀɴ  ʏᴏᴜ</i>")
 
 
 
