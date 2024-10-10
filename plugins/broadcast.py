@@ -72,6 +72,7 @@ async def broadcast_command(bot, message):
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users: {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
 
+# Admin-only commands
 @Client.on_message(filters.command("sent") & filters.user(ADMINS))
 async def sent_command(bot, message):
     user_id = message.command[1]
@@ -87,28 +88,40 @@ async def sent_command(bot, message):
     ]
     reply_markup = InlineKeyboardMarkup(inline_buttons)
     
-    await message.reply_text("**sᴇʟᴇᴄᴛ  ᴀᴄᴛɪᴏɴ  ғʀᴏᴍ  ʙᴇʟᴏᴡ  ʙᴜᴛᴛᴏɴs**\n\nchoose  carefully  you  only  have  one  chance", reply_markup=reply_markup)
+    await message.reply_text("**sᴇʟᴇᴄᴛ  ᴀᴄᴛɪᴏɴ  ғʀᴏᴍ  ʙᴇʟᴏᴡ  ʙᴜᴛᴛᴏɴs**\n\nchoose carefully, you only have one chance", reply_markup=reply_markup)
 
+# Admin-only callback handlers
 @Client.on_callback_query(filters.regex(r"approve_\d+") & filters.user(ADMINS))
 async def approve_callback(client, callback_query):
-    user_id = int(callback_query.data.split('_')[1])  # Extract user_id from callback data
+    user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ɢɪᴠᴇɴ  ᴛᴏ  ᴜsᴇʀs**")
-    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ   ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ  ᴄʟᴏɴᴇᴅ  ғɪʟᴇ  sʜᴀʀᴇ  ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ** - 1 **ʏᴇᴀʀ  ғʀᴏᴍ  ᴛᴏᴅᴀʏ\n\n💡ᴄʟɪᴄᴋ  ʙᴇʟᴏᴡ  ʙᴜᴛᴛᴏɴ  ᴀɴᴅ  ғᴏʟʟᴏᴡ  ɢɪᴠᴇɴ  ɪɴsᴛʀᴜᴄᴛɪᴏɴ  ᴛᴏ  ᴀᴅᴅ  ʏᴏᴜʀ  ʙᴏᴛ🤖  ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("ᴄʜᴇᴄᴋ  ʏᴏᴜʀ  ʀᴇᴡᴀʀᴅs🥳", callback_data="reward")
+    await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ ᴄʟᴏɴᴇᴅ ғɪʟᴇ  sʜᴀʀᴇ ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ - 1 ʏᴇᴀʀ ғʀᴏᴍ ᴛᴏᴅᴀʏ \n\n💡ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ғᴏʟʟᴏᴡ ɢɪᴠᴇɴ ɪɴsᴛʀᴜᴄᴛɪᴏɴs ᴛᴏ ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
+        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data=f"reward_{user_id}")
     ]]))
 
 @Client.on_callback_query(filters.regex(r"decline_\d+") & filters.user(ADMINS))
 async def decline_callback(client, callback_query):
-    user_id = int(callback_query.data.split('_')[1])  # Extract user_id from callback data
-    await callback_query.message.edit_text("**ᴅᴏɴᴀᴛɪᴏɴ  ᴅᴇᴄʟɪɴᴇ  ғᴏʀ  ᴛʜᴀᴛ  ᴜsᴇʀs**")
-    await client.send_message(user_id, "**ᴅᴏɴᴀᴛɪᴏɴ  ᴅᴇᴄʟɪɴᴇ❌  ғᴀʟsᴇ  ᴘᴀʏᴍᴇɴᴛ  ᴍᴀᴅᴇ**\ncontact  admin  for  any  payment  related  issue**")
+    user_id = int(callback_query.data.split('_')[1])
+    await callback_query.message.edit_text("**ᴅᴏɴᴀᴛɪᴏɴ ᴅᴇᴄʟɪɴᴇ ғᴏʀ ᴛʜᴀᴛ ᴜsᴇʀs**")
+    await client.send_message(user_id, "**ᴅᴏɴᴀᴛɪᴏɴ ᴅᴇᴄʟɪɴᴇ❌ ғᴀʟsᴇ ᴘᴀʏᴍᴇɴᴛ ᴍᴀᴅᴇ**\nContact admin for any payment-related issue.")
 
 @Client.on_callback_query(filters.regex(r"warning_\d+") & filters.user(ADMINS))
 async def warning_callback(client, callback_query):
-    user_id = int(callback_query.data.split('_')[1])  # Extract user_id from callback data
-    await callback_query.message.edit_text("**ᴡᴀʀɴɪɴɢ  ɢɪᴠᴇɴ  ᴛᴏ  ᴛʜᴀᴛ  ᴜsᴇʀs**")
-    await client.send_message(user_id, "**❗ᴡᴀʀɴɪɴɢ -  ʏᴏᴜ  ᴀʀᴇ  ᴠɪᴏʟᴀᴛɪɴɢ  ᴏᴜʀ  ᴛᴇʀᴍs  ʙʏ  sᴇɴᴅɪɴɢ  ᴇxᴘʟɪᴄɪᴛ  ᴄᴏɴᴛᴇɴᴛ  sᴏ  ᴡᴇ  ʜᴀᴠᴇ  ᴛᴏ  ʙᴀɴ  ʏᴏᴜ .  ᴄᴏɴᴛᴀᴄᴛ  [ᴀᴅᴍɪɴ](https://t.me/Tetris_admino_bot)  ғᴏʀ  ᴍᴏʀᴇ  ɪɴғᴏ** ")
+    user_id = int(callback_query.data.split('_')[1])
+    await callback_query.message.edit_text("**ᴡᴀʀɴɪɴɢ ɢɪᴠᴇɴ ᴛᴏ ᴛʜᴀᴛ ᴜsᴇʀ**")
+    await client.send_message(user_id, "**❗Warning - You are violating our terms by sending explicit content. You may be banned. Contact [admin](https://t.me/Tetris_admino_bot) for more info.**")
+
+# Callback handler for rewards (open to all users)
+@Client.on_callback_query(filters.regex(r"reward_\d+"))
+async def reward_callback(client, callback_query):
+    user_id = int(callback_query.data.split('_')[1])
     
+    # Check if the user has premium access
+    if user_id in P_USERS:
+        await callback_query.message.edit_text("**🎉 Congratulations! You have access to premium rewards! 🏆**\n\nYou can now enjoy all the benefits available.")
+    else:
+        await callback_query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
+        
 
 
     
