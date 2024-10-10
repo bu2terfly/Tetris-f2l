@@ -96,7 +96,7 @@ async def approve_callback(client, callback_query):
     user_id = int(callback_query.data.split('_')[1])
     await callback_query.message.edit_text("**ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ɢɪᴠᴇɴ  ᴛᴏ  ᴜsᴇʀs**")
     await client.send_message(user_id, "**ᴠᴇʀɪғɪᴇᴅ [☑️](https://telegra.ph/file/c3b32fe658011f2854000.mp4)  ᴛʜᴀɴᴋ ʏᴏᴜ  ғᴏʀ  ᴘᴜʀᴄʜᴀsɪɴɢ🎉 \n\n📦ᴘʀᴏᴅᴜᴄᴛ - ᴀ ᴄʟᴏɴᴇᴅ ғɪʟᴇ  sʜᴀʀᴇ ʙᴏᴛ \n⏳ᴠᴀʟɪᴅɪᴛʏ - 1 ʏᴇᴀʀ ғʀᴏᴍ ᴛᴏᴅᴀʏ \n\n💡ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ғᴏʟʟᴏᴡ ɢɪᴠᴇɴ ɪɴsᴛʀᴜᴄᴛɪᴏɴs ᴛᴏ ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ**", reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data=f"reward_{user_id}")
+        InlineKeyboardButton("ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʀᴇᴡᴀʀᴅs🥳", callback_data="reward")
     ]]))
 
 @Client.on_callback_query(filters.regex(r"decline_\d+") & filters.user(ADMINS))
@@ -111,17 +111,6 @@ async def warning_callback(client, callback_query):
     await callback_query.message.edit_text("**ᴡᴀʀɴɪɴɢ ɢɪᴠᴇɴ ᴛᴏ ᴛʜᴀᴛ ᴜsᴇʀ**")
     await client.send_message(user_id, "**❗Warning - You are violating our terms by sending explicit content. You may be banned. Contact [admin](https://t.me/Tetris_admino_bot) for more info.**")
 
-# Callback handler for rewards (open to all users)
-@Client.on_callback_query(filters.regex(r"reward_\d+"))
-async def reward_callback(client, callback_query):
-    user_id = int(callback_query.data.split('_')[1])
-    
-    # Check if the user has premium access
-    if user_id in P_USERS:
-        await callback_query.message.edit_text("**🎉 Congratulations! You have access to premium rewards! 🏆**\n\nYou can now enjoy all the benefits available.")
-    else:
-        await callback_query.message.edit_text("**❌ Better luck next time!**\n\nYou don’t have access to premium rewards. To unlock premium, consider subscribing.")
-        
 
 
     
