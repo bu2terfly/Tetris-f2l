@@ -76,24 +76,24 @@ Now  you  can  use  /batch  &  /shortner  command
 
 💸sᴄᴀɴ  ᴀʙᴏᴠᴇ  ǫʀ  ᴀɴᴅ  ᴘᴀʏ  ᴀɴʏ  ᴀᴍᴏᴜɴᴛ  ᴀғᴛᴇʀ  ᴘᴀʏᴍᴇɴᴛ  ᴄʟɪᴄᴋ  ᴏɴ  ᴀᴍᴏᴜɴᴛ  ᴘᴀɪᴅ** 
 
-donate  25$  or  more  to  unlock  premium  command"""
+donate  30₹  or  more  to  unlock  premium  command"""
     
     CLONE_TXT = """**ᴅᴏɴᴀᴛᴇ💸  ᴀɴʏ  ᴀᴍᴏᴜɴᴛ  ᴛᴏ  ғᴜɴᴅ  ᴏᴜʀ  ᴡᴏʀᴋ . ʏᴏᴜʀ  ᴅᴏɴᴀᴛɪᴏɴ  ʜᴇʟᴘ  ᴜs  ᴛᴏ  ᴘᴀʏ  ᴏᴜʀ  ʙᴏᴛ  sᴇʀᴠᴇʀ  ᴇxᴘᴀɴsᴇs  sᴏ  ʙᴏᴛs  ᴄᴀɴ  ʀᴜɴ  24/7
 
 ᴏᴜʀ  ᴛᴏᴘ  ᴅᴏɴᴀᴛᴇʀs  &   ᴛʜᴇɪʀ  ᴄʜᴀɴɴᴇʟs**
 
 <blockquote expandable>1️⃣ Admin   👉🏻  @tetris_bots               100₹
-2️⃣ none  👉🏻  @none                  00₹
-3️⃣ none 👉🏻 @none                             0₹
-4️⃣ none  👉🏻 @none                       0₹
-5️⃣ none 👉🏻 @none                             0₹
-6️⃣ none 👉🏻 @none                        0₹
-7️⃣ none 👉🏻 @none                             0₹
-8️⃣ none  👉🏻 @none                       0₹
-9️⃣ none 👉🏻 @none                             0₹
-🔟 none  👉🏻 @none           0₹</blockquote>
+2️⃣ none  👉🏻 @none                             0₹
+3️⃣ none  👉🏻 @none                             0₹
+4️⃣ none  👉🏻 @none                             0₹
+5️⃣ none  👉🏻 @none                             0₹
+6️⃣ none  👉🏻 @none                             0₹
+7️⃣ none  👉🏻 @none                             0₹
+8️⃣ none  👉🏻 @none                             0₹
+9️⃣ none  👉🏻 @none                             0₹
+🔟 none  👉🏻 @none                             0₹</blockquote>
 ﻿
-**ᴅᴏɴᴀᴛᴇ**  ₹25  ᴏʀ  ᴀʙᴏᴠᴇ  ᴀɴᴅ  ɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ  ᴀɴᴅ  ᴀ  sᴜʀᴘʀɪsᴇ  ɢɪғᴛ**"""
+**ᴅᴏɴᴀᴛᴇ**  ₹30  **ᴏʀ  ᴀʙᴏᴠᴇ  ᴀɴᴅ  ɢᴇᴛ  ᴘʀᴇᴍɪᴜᴍ  ᴄᴏᴍᴍᴀɴᴅ  ᴜɴʟᴏᴄᴋᴇᴅ  ᴀɴᴅ  ᴀ  sᴜʀᴘʀɪsᴇ  ɢɪғᴛ**"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
