@@ -566,8 +566,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("⟡ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=download),  # we download Link
-                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=stream)
+                InlineKeyboardButton("⟡ sᴛʀᴇᴀᴍ  ᴏɴʟɪɴᴇ", url=stream),  # we download Link
+                InlineKeyboardButton('ᴅᴏᴡɴʟᴏᴀᴅ  ғᴀsᴛ ⟡', url=download)
             ],[
                 InlineKeyboardButton("• ᴡᴀᴛᴄʜ  ᴏɴ  ᴛᴇʟᴇɢʀᴀᴍ  ᴡᴇʙ •", web_app=WebAppInfo(url=stream))
             ]]
